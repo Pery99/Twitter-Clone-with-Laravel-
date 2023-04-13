@@ -1,0 +1,364 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu:wght@400;500&display=swap');
+  *{
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+  }
+.second_side{
+    border-left: 1px solid whitesmoke;
+    border-right: 1px solid whitesmoke;
+    width: 50%;
+}
+
+.s-head{
+    box-shadow: 0px 3px 5px rgb(192, 184, 184);
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    padding: 10px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.cover-photo{
+    background-color: rgb(206, 198, 198);
+    height: 32vh;
+}
+.profile-picture{
+    position: absolute;
+    top: 220px;
+}
+.pp-cnt{
+    position: relative;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 400px;
+}
+.profile-photo{
+    width: 135px;
+    height: 135px;
+    border-radius: 67.5px;
+    border: 2px solid white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.profile-photo:hover{
+    opacity: 0.8;
+}
+.button{
+   padding: 8px 20px;
+   background-color: transparent;
+   color: rgb(255, 255, 255);
+   font-weight: bolder;
+   border: 2px solid #201f1f;
+   background-color: #201f1f;
+   border-radius: 20px; 
+   transition: 0.3s;
+   cursor: pointer;
+}
+
+.rest{
+    margin-top: 18%;
+}
+.profile-details{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 15px;
+}
+.calender{
+    width: 15px;
+    height: 15px;
+}
+.joined{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.followers{
+    display: flex;
+    gap: 10px;
+}
+.whitesmoke{
+    color: rgb(83, 83, 83);
+}
+.tweetss{
+    padding: 2% 0;
+}
+.view-tweet{
+    padding: 2% 4%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position : relative;
+    justify-content: start;
+    width: 100%;
+    transition: 0.5ss;
+}
+.view-tweet:hover{
+    background-color: rgb(231, 227, 227);
+}
+.image-post:hover{
+    background-color: rgb(231, 227, 227);
+}
+.prof{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.id{
+    display: flex;
+    position: relative;
+    gap: 12px;
+    align-items: center;
+}
+.menue{
+    position: absolute;
+    left: 510px;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 20px;
+
+}
+
+.reactions{
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    align-items: center;
+    margin-top: 1%;
+    padding: 6px 0;
+    list-style: none;
+    border-bottom: 1px solid whitesmoke;
+
+}
+.image-post{
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+.img-upload{
+    width: 350px;
+    height: 300px;
+    border-radius: 15px;
+}
+.l-react{
+    cursor: pointer;
+    width: 25px;
+    height: 15px;
+}
+.sections{
+    width: 100%;
+    border-bottom: 1px solid whitesmoke;
+     margin-top: 3%;
+}
+.sec-cnt{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+.sec-cnt h4{
+    cursor: pointer;
+    padding: 20px 35px;
+}
+.sec-cnt h4:hover{
+    background-color: whitesmoke;
+}
+.men-ue{
+    display: none; 
+    border-radius: 10px;
+    position: absolute;
+    bottom: 100px;
+    width: 80%;
+    z-index: 1;
+    box-shadow: 0px 0px 10px 5px rgb(148, 144, 144);
+}
+
+.men-ue1{
+    height: 10vh;
+    display : flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    right: 100px;
+    width: 20%;
+    z-index: 1;
+    box-shadow: 0px 3px 5px rgb(148, 144, 144);
+}
+.menue-li{
+    width: 100%;
+    padding: 13px 0;
+    border: none;
+    z-index: 1;
+    background-color: white;
+    font-weight: bolder;
+}
+.menue-li:hover{
+    background-color: whitesmoke;
+}
+.menue:hover{
+    background-color: rgb(148, 144, 144);
+}
+
+.third-container{
+    width: 30%;
+    
+}
+.th-container{
+    position: sticky;
+    top: -200px;
+}
+.search-head{
+    display: flex;
+    gap: 5px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    margin: 10px;
+   
+}
+.search{
+    background: transparent;
+    border: none;
+    padding: 12px 2px 12px 10px;
+    outline: none;
+}
+.trending{
+    background-color: whitesmoke;
+    margin-top: 5%;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 20px;
+    text-align: start;
+}
+.trend{
+    margin: 8% 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.trending .trending-cnt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.others{
+    background-color: whitesmoke;
+    margin-top: 8%;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 20px;
+    text-align: start;
+}
+.follow{
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.follow-id{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.follow-btn{
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.images-posted{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 80%;
+}
+.posted{
+    width: 100px;
+    height: 100px;
+}
+.posted-bd{
+    width: 100px;
+    height: 100px;
+    border-top-left-radius: 20%;
+}
+.posted-ls{
+    width: 100px;
+    height: 100px;
+    border-bottom-right-radius: 20%;
+}
+.posted-tr{
+    width: 100px;
+    height: 100px;
+    border-top-right-radius: 20%;
+}
+.posted-ft{
+    width: 100px;
+    height: 100px;
+    border-bottom-left-radius: 20%;
+}
+.edit-profile{
+    background-color: rgb(236, 224, 224);
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    padding: 15px 25px 25px 25px;
+    z-index: 1;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px rgb(102, 99, 99);
+    display: none;
+}
+.edit{
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid black;
+    outline: none;
+}
+.edit-submit{
+    padding: 10px 15px;
+    border-radius: 12px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    outline: none;
+}
+.photo-display{
+   position: absolute;
+   top: 20%;
+   left: 30%;
+   z-index: 1;
+   display: none;
+}
+.big-photo{
+    height: 400px;
+    width: 450px;
+}
+.message-div{
+   position: absolute;
+    left: 45%;
+    top: 3%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1DA1F2;
+    color: white;
+    padding: 15px;
+    z-index: 999;
+    text-align: center;
+}
+.bio{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 50%;
+}
+

@@ -1,0 +1,13 @@
+.second-side{
+    border-left: 1px solid whitesmoke;
+
+
+}
+.content{
+    color: rgb(107, 107, 107);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+   
+}
