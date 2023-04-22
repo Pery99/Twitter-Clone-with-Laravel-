@@ -1,25 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu:wght@400;500&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu:wght@400;500&display=swap");
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
-.first_side{
+.first_side {
     position: sticky;
     top: 3px;
     height: 100vh;
     padding: 6px 55px;
     width: 25%;
-    
 }
-.f-container{
+.f-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.cnt{
+.cnt {
     display: flex;
     flex-direction: column;
     align-content: space-around;
@@ -27,7 +26,7 @@
     gap: 30px;
     /* display: inline-block; */
 }
-.nav{
+.nav {
     display: flex;
     align-items: start;
     flex-direction: column;
@@ -50,24 +49,24 @@
     font-size: larger;
     font-weight: bold;
 } */
-.nav .li a{
+.nav .li a {
     text-decoration: none;
     color: black;
     font-size: larger;
     font-weight: bold;
 }
-.nav .li{
+.nav .li {
     width: 100%;
     padding: 10px;
     transition: 0.6s;
 }
-.nav .li:hover{
+.nav .li:hover {
     background-color: rgb(224, 224, 224);
     border: none;
     border-radius: 20px;
     box-shadow: 0px 15px 5px whitesmoke;
 }
-.tweet{
+.tweet {
     width: 100%;
     text-decoration: none;
     color: white;
@@ -79,22 +78,21 @@
     text-align: center;
     font-weight: bold;
 }
-.tweet:hover{
+.tweet:hover {
     opacity: 0.8;
 }
-.profile{
+.profile {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.profile-cnt{
+.profile-cnt {
     display: flex;
     gap: 15px;
     align-items: center;
-
-} 
-.text{
+}
+.text {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -105,31 +103,31 @@
     font-size: xx-large;
     align-self: center;    
 } */
-.p-photo{
+.p-photo {
     width: 50px;
     height: 50px;
     border-radius: 25px;
 }
-.tw-icon{
-    width: 35px; 
-    height: 30px; 
+.tw-icon {
+    width: 35px;
+    height: 30px;
     margin-bottom: 30px;
     /* -webkit-box-reflect: below 1px linear-gradient(#b19f9f, transparent); */
 }
-.nav-icon{
+.nav-icon {
     width: 40px;
     height: 20px;
 }
-.second_side{
+.second_side {
     padding: 10px 0;
     border-left: 1px solid whitesmoke;
     border-right: 1px solid whitesmoke;
     width: 50%;
 }
-.s-container{
+.s-container {
     padding: 20px 0;
 }
-.header-container{
+.header-container {
     margin: 0 20px;
     margin-top: 10px;
     position: sticky;
@@ -139,23 +137,22 @@
     background-color: white;
     border-radius: 20px;
 }
-.header{
+.header {
     display: flex;
     justify-content: space-around;
     padding: 2% 5%;
-   
 }
-.header a{
+.header a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     transition: 0.4s;
 }
-.header a:hover{
+.header a:hover {
     opacity: 0.7;
 }
 
-.post-tweet{
+.post-tweet {
     position: relative;
     display: flex;
     align-items: center;
@@ -169,7 +166,7 @@
 /* .{
    
 } */
-.inp{
+.inp {
     width: 200%;
     height: 10vh;
     border: none;
@@ -177,11 +174,11 @@
     font-size: large;
     background: transparent;
 }
-*::placeholder{
-    font-weight: bolder;
-    font-size: large;
+*::placeholder {
+    font-weight: bold;
+    font-size: medium;
 }
-.send-tweet{
+.send-tweet {
     position: relative;
     left: 190px;
     align-self: flex-end;
@@ -196,12 +193,12 @@
     font-weight: bold;
     opacity: 0.8;
 }
-.lol{
+.lol {
     margin-left: 15px;
     cursor: pointer;
 }
 
-.view-tweet{
+.view-tweet {
     padding: 2% 4%;
     display: flex;
     align-items: center;
@@ -210,28 +207,27 @@
     width: 100%;
     transition: 0.5ss;
     border-top: 1px solid whitesmoke;
-    
 }
-.view-tweet:hover{
+.view-tweet:hover {
     background-color: rgb(231, 227, 227);
 }
-.prof{
+.prof {
     display: flex;
     gap: 12px;
     align-items: center;
 }
-.id{
+.id {
     display: flex;
     position: relative;
     gap: 12px;
     align-items: center;
 }
-.menue{
+.menue {
     position: absolute;
     left: 550px;
     cursor: pointer;
 }
-.reactions{
+.reactions {
     display: flex;
     justify-content: center;
     gap: 70px;
@@ -241,41 +237,28 @@
     list-style: none;
     border-bottom: 1px solid whitesmoke;
 }
-.image-post{
+.image-post {
     display: flex;
     justify-content: center;
     padding: 12px 0;
-  }
-.img-upload{
-      width: 300px;
-      height: 300px;
-      border-radius: 10px;
-  }
-.l-react{
+}
+.img-upload {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+.l-react {
     cursor: pointer;
     width: 25px;
     height: 15px;
 }
 
-.third-container{
-    width: 25%;
+.third-container {
+    width: 30%;
+    padding: 3em;
 }
 
-.search-head{
-    display: flex;
-    gap: 5px;
-    border-radius: 20px;
-    background-color: whitesmoke;
-    margin: 10px;
-    
-}
-.search{
-    background: transparent;
-    border: none;
-    padding: 12px 2px 12px 10px;
-    outline: none;
-}
-.trending{
+.trending {
     background-color: whitesmoke;
     margin-top: 5%;
     border-radius: 15px;
@@ -283,40 +266,39 @@
     padding: 20px;
     text-align: start;
 }
-.trend{
+.trend {
     margin: 8% 0;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
-.trending .trending-cnt{
+.trending .trending-cnt {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
-.others{
+.others {
     position: sticky;
     top: 8px;
     background-color: whitesmoke;
-    margin-top: 8%;
     border-radius: 15px;
-    margin: 10px;
+    width: 100%;
     padding: 20px;
     text-align: start;
 }
-.follow{
+.follow {
     margin-top: 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.follow-id{
+.follow-id {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.follow-btn{
+.follow-btn {
     color: white;
     background-color: black;
     border: none;
@@ -324,11 +306,11 @@
     border-radius: 30px;
     font-weight: bold;
 }
-.f-text{
+.f-text {
     display: flex;
     flex-direction: column;
 }
-#logout{
+#logout {
     border-radius: 10px;
     position: absolute;
     bottom: 140px;
@@ -336,8 +318,8 @@
     z-index: 1;
     box-shadow: 0px 0px 10px 5px rgb(148, 144, 144);
 }
-.l-out{
-    display: none; 
+.l-out {
+    display: none;
     border-radius: 10px;
     position: absolute;
     bottom: 140px;
@@ -346,7 +328,7 @@
     box-shadow: 0px 0px 10px 5px rgb(148, 144, 144);
 }
 
-.log-out{
+.log-out {
     border-radius: 10px;
     width: 100%;
     padding: 13px 0;
@@ -355,29 +337,75 @@
     background-color: white;
     font-weight: bolder;
 }
-.log-out:hover{
+.log-out:hover {
     background-color: whitesmoke;
 }
-.llo{
+.llo {
     padding: 12px;
     border-radius: 20px;
-
 }
-.llo:hover{
+.llo:hover {
     background-color: whitesmoke;
 }
 
-.message-div{
+.message-div {
     position: absolute;
     left: 45%;
     top: 3%;
     width: 50%;
     transform: translate(-50%, -50%);
-    background-color: #1DA1F2;
+    background-color: #1da1f2;
     color: white;
     padding: 15px;
     z-index: 999;
     text-align: center;
 }
 
-  
+.write-comment {
+    position: fixed;
+    bottom: 0.1em;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.comment {
+    resize: none;
+    z-index: 999;
+    font-size: medium;
+    outline: none;
+    padding: 0.2em;
+    border-top: none;
+    border-bottom: 2px solid #1da1f2;
+    border-left: none;
+    border-right: none;
+}
+.send {
+    padding: 0.5em 2em;
+    align-self: last baseline;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+}
+.comments {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+.rep {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.com-bd {
+    margin-top: 0.3em;
+    display: flex;
+    border-bottom: 1px solid whitesmoke;
+    gap: 5px;
+    padding: 0.2em 0.5em;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}

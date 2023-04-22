@@ -9,6 +9,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\TweetsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,6 @@ Route::get('/', [TweetsController::class, 'index'])->middleware(['auth'])->name(
 
 Route::post('/users/{user:username}/follow', [FollowController::class, 'store'])->middleware(['auth']);
 
-// Route::post('/create-follow/{user:username}', [FollowController::class, 'createFollow'])->middleware(['auth']);
-// Route::post('/remove-follow/{user:username}', [FollowController::class, 'removeFollow'])->middleware(['auth']);
 
 Route::get('/register', function(){
     return view('register');
@@ -48,17 +47,19 @@ Route::get('/message', function() {
     return view('message');
 })->middleware(['auth'])->name('message');
 
-Route::get('/list', function() {
-    return view('list');
-})->middleware(['auth'])->name('list');
+// Route::get('/li', function() {
+//     return view('list');
+// })->middleware(['auth'])->name('list');
 
 Route::get('/edit', function() {
     return view('edit');
 })->middleware(['auth'])->name('edit');
 
-Route::get('/suggestion', [ProfileController::class, 'allUsers'])->middleware(['auth']);
+Route::post('/comment', [CommentsController::class, 'store'])->middleware(['auth']);
 
-Route::patch('/profile', [ProfileController::class, 'update']);
+Route::get('/list', [ProfileController::class, 'allUsers'])->middleware(['auth']);
+
+Route::patch('/profile', [ProfileController::class, 'update'])->middleware(['auth']);
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('profile');
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->middleware(['auth']);
@@ -76,4 +77,4 @@ Route::get('/login', function(){
  Route::get('/logout', [LoginController::class, 'logout']);
 
 
- Route::get('/tweet/{id}', [TweetsController::class, 'show']);
+ Route::get('/tweet/{id}', [TweetsController::class, 'show'])->middleware(['auth']);

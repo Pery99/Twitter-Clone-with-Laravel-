@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu:wght@400;500&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu:wght@400;500&display=swap");
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.second_side{
+.second_side {
     padding: 10px 0;
     border-left: 1px solid whitesmoke;
     border-right: 1px solid whitesmoke;
     width: 50%;
 }
-.s-container{
+.s-container {
     padding: 20px 0;
 }
-.header-container{
+.header-container {
     margin: 0 20px;
     margin-top: 10px;
     position: sticky;
@@ -23,23 +23,22 @@
     background-color: white;
     border-radius: 20px;
 }
-.header{
+.header {
     display: flex;
     justify-content: space-around;
     padding: 2% 5%;
-   
 }
-.header a{
+.header a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     transition: 0.4s;
 }
-.header a:hover{
+.header a:hover {
     opacity: 0.7;
 }
 
-.post-tweet{
+.post-tweet {
     position: relative;
     display: flex;
     align-items: center;
@@ -50,44 +49,45 @@
     /* border-top: 1px solid whitesmoke; */
     border-bottom: 1px solid whitesmoke;
 }
-
-.inp{
-    width: 200%;
-    height: 10vh;
+.textarea-forpost {
+    flex-grow: 3;
+}
+.inp {
+    resize: none;
     border: none;
     outline: none;
     font-size: large;
     background: transparent;
-    word-wrap: break-word;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
 }
-*::placeholder{
+
+*::placeholder {
     font-weight: bolder;
     font-size: large;
+    display: flex;
 }
-.send-tweet{
-    position: relative;
-    left: 190px;
-    align-self: flex-end;
-    width: 15%;
+
+.upload {
+    margin-top: 0.2em;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.send-tweet {
     color: white;
     cursor: pointer;
-    background-color: #1DA1F2;
-    padding: 10px 20px;
+    background-color: #1da1f2;
+    padding: 8px 5px;
+    width: 20%;
     border: none;
-    margin-top: 10px;
     border-radius: 25px;
-    text-align: center;
-    font-weight: bold;
-    opacity: 0.8;
 }
-.lol{
+.lol {
     margin-left: 15px;
     cursor: pointer;
 }
 
-.view-tweet{
+.view-tweet {
     padding: 2% 4%;
     display: flex;
     align-items: center;
@@ -96,27 +96,27 @@
     width: 100%;
     transition: 0.5ss;
 }
-.view-tweet:hover{
+.view-tweet:hover {
     background-color: rgb(231, 227, 227);
 }
-.prof{
+.prof {
     display: flex;
     gap: 12px;
     align-items: center;
 }
-.id{
+.id {
     display: flex;
     position: relative;
     gap: 12px;
     align-items: center;
 }
-.menue{
+.menue {
     position: absolute;
     left: 510px;
     cursor: pointer;
 }
 
-.reactions{
+.reactions {
     display: flex;
     justify-content: center;
     gap: 70px;
@@ -125,28 +125,27 @@
     padding: 6px 0;
     list-style: none;
     border-bottom: 1px solid whitesmoke;
-
 }
-.image-post{
+.image-post {
     display: flex;
     justify-content: center;
     padding: 10px 0;
-  }
-  .img-upload{
-      width: 350px;
-      height: 300px;
-      border-radius: 15px;
-  }
-.l-react{
+}
+.img-upload {
+    width: 350px;
+    height: 300px;
+    border-radius: 15px;
+}
+.l-react {
     cursor: pointer;
     width: 25px;
     height: 15px;
 }
 
-.third-container{
+.third-container {
     width: 30%;
 }
-.search-head{
+.search-head {
     display: flex;
     gap: 5px;
     border-radius: 20px;
@@ -155,12 +154,12 @@
     align-items: center;
     padding: 10px 2px 10px 10px;
 }
-.search{
+.search {
     background: transparent;
     border: none;
     outline: none;
 }
-.search-inp{
+.search-inp {
     background: transparent;
     border: none;
     outline: none;
@@ -168,26 +167,26 @@
     padding: 2px 15px;
     font-size: large;
 }
-.trending{
+.trending {
     background-color: whitesmoke;
     border-radius: 15px;
     margin: 10px;
     padding: 20px 20px 2px 20px;
     text-align: start;
 }
-.trend{
+.trend {
     margin: 6% 0;
     display: flex;
     flex-direction: column;
     gap: 28px;
 }
-.trending .trending-cnt{
+.trending .trending-cnt {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
-.others{
+.others {
     position: sticky;
     top: 8px;
     background-color: whitesmoke;
@@ -197,18 +196,18 @@
     padding: 20px;
     text-align: start;
 }
-.follow{
+.follow {
     margin-top: 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.follow-id{
+.follow-id {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.follow-btn{
+.follow-btn {
     color: white;
     background-color: black;
     border: none;
@@ -216,28 +215,27 @@
     border-radius: 30px;
     font-weight: bold;
 }
-.f-text{
+.f-text {
     display: flex;
     flex-direction: column;
 }
-.message-div{
+.message-div {
     display: flex;
     justify-content: center;
-    background-color: #1DA1F2;
+    background-color: #1da1f2;
     color: white;
     padding: 15px;
-    
 }
-.user-search{
+.user-search {
     width: 100%;
     padding: 8px 20px;
-    border: 2px solid #1DA1F2;
+    border: 2px solid #1da1f2;
     background: transparent;
     border-radius: 15px;
     outline: none;
     margin-bottom: 10px;
 }
-footer{
+footer {
     position: sticky;
     top: 20px;
     padding: 2px 15px;
@@ -246,7 +244,7 @@ footer{
     gap: 10px;
     color: rgb(165, 165, 165);
 }
-.footer-cnt{
+.footer-cnt {
     display: flex;
     justify-content: space-between;
     padding: 2px 10px;

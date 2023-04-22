@@ -48,7 +48,7 @@
                 <h2>{{$user->name}}</h2>
                 <p class="whitesmoke">{{'@' . $user->username}}</p>
                 <br>
-                <p class="bio ">{{$user->profile->bio}}</p>
+                <p class="bio">{{$user->profile->bio}}</p>
                 <p>{{$user->email}}</p>
                <div class="joined"><img class="calender" src="icon/calendar3.svg" alt=""><p class="whitesmoke">{{'Joined ' . auth()->user()->created_at}}</p></div>
                 <div class="followers">
@@ -58,13 +58,13 @@
            </div>
            <div class="sections">
                 <div class="sec-cnt">
-                <h4 style="border-bottom: 2px solid #1DA1F2; border-bottom-radius:20%">Tweets</h4>
-                <h4>Tweets & replies</h4>
-                <h4>Media</h4>
+                <h4 class="tablinks" onclick="slide(event, 'tweet')" id="defaultOpen">Tweets</h4>
+                <h4 class="tablinks" onclick="slide(event, 'tweetAndReply')">Tweets & replies</h4>
+                <h4 class="tablinks" onclick="slide(event, 'media')">Media</h4>
                 <h4>Likes</h4>
                 </div>
-           </div>
-           <div class="tweetss">
+           </div>  
+           <div class="tweetss" id="tweet">
             @unless (count($tweets) == 0)
             @foreach ($tweets as $tweet) 
             @php 
@@ -84,41 +84,91 @@
                             <button class="menue-li">Edit Post</button>
                         </form>
                     </div>
-                    <div class="post">
+                   
+                    <a style="text-decoration: none; color:black" href="/tweet/{{$tweet['id']}}">
+                         <div class="post">
                         <br>
                         <p style="font-weight: bold;">{{$tweet->tweets}}</p>
                     </div>
+                </div>
             </div>
-        </div>
-        @if ($tweet->image == '')
-        <p></p>
-    @else
-    <div class="image-post">
-        <img class="img-upload" src="/storage/{{$tweet->image}}" alt="">
-    </div>
-    @endif
-        <ul class="reactions">
-            <li> <img class="l-react" src="/icon/chat.svg" alt="">0</li>
-            <li> <img class="l-react" src="/icon/repeat.svg" alt="">0</li>
-            <li> <img class="l-react" src="/icon/heart.svg" alt="">0</li>
-            <li> <img class="l-react" src="/icon/bar-chart.svg" alt="">0</li>
-            <li> <img class="l-react" src="/icon/upload.svg" alt=""></li>
-        </ul>
-        @endforeach
+            @if ($tweet->image == '')
+            <p></p>
+            @else
+            <div class="image-post">
+                <img class="img-upload" src="/storage/{{$tweet->image}}" alt="">
+            </div>
+            @endif
+            <ul class="reactions">
+                <li> <img class="l-react" src="/icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
+                <li> <img class="l-react" src="/icon/repeat.svg" alt="">0</li>
+                <li> <img class="l-react" src="/icon/heart.svg" alt="">0</li>
+                <li> <img class="l-react" src="/icon/bar-chart.svg" alt="">0</li>
+                <li> <img class="l-react" src="/icon/upload.svg" alt=""></li>
+            </ul>
+        </a>
+            @endforeach
         @else
         <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No tweets found</h1>
             @endunless
            </div>
+
+           <div class="tweetss" id="tweetAndReply" style="display: none;">
+            @unless (count($comments) == 0)
+            @foreach ($comments as $comment) 
+            @php 
+            $id = rand();
+            @endphp   
+            <div id = "id{{$id}}" class="view-tweet">
+                <div class="info">
+                    <div class="prof">
+                        <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
+                        <div class="id">
+                            <h3>{{$user->name}}</h3><p style="font-size: large;">{{'@'. $user->username}}</p><h5>{{$comment->created_at}}</h5>
+                            <img onclick="menue('id{{$id}}')" class="menue" src="icon/three-dots.svg" alt="">
+                        </div>
+                        <form class="men-ue" id="" action="{{""}}">
+                            <button class="menue-li">Pin Post</button>
+                            <button class="menue-li">Delete Post</button>
+                            <button class="menue-li">Edit Post</button>
+                        </form>
+                    </div>
+                
+                         <div class="post">
+                        <br>
+                           <p style="color:gray">replying to <span style="color:rebeccapurple; cursor:pointer"> {{'@'. $comment->user->username}}</span></p>
+                        <p style="font-weight: bold;">{{$comment->comment}}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        @else
+        <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No Comments made</h1>
+            @endunless
+           </div>
+
+           <div class="all-img" id="media">
+            @unless (count($tweets) == 0)
+            @foreach ($tweets as $tweet)  
+            <img class="all-img-upload" src="/storage/{{$tweet->image}}" alt="">
+            @endforeach
+            @else
+            <h1 style="text-align: center; margin-top:20px">No image yet..</h1>
+            @endunless
+        </div>
            {{-- End... --}}
            </div>
         </div>
+
+        
+
         {{-- div of the last container --}}
         <div class="third-container">
             <div class="th-container">
                 <div class="search-head">
                     <img class="search" src="icon/search.svg" alt=""> 
                 <form action="/profile">
-                    <input class="search" type="search" name="search" id="" placeholder="Search your pfofile">
+                    <input class="search" type="search" name="search" id="" placeholder="Search your tweets">
                 </form>
             </div>
            
@@ -217,7 +267,8 @@
             var post = document.getElementById(id);
             var first = post.querySelector('.men-ue');
             first.classList.toggle("men-ue1");
-    }
+        }
+
 
     function edit() {
         document.querySelector('.edit-profile').style.display = 'block';
@@ -237,5 +288,8 @@
         document.querySelector('.photo-display').style.display = 'none';
          document.querySelector('.second_side').style.filter = 'none';
     }
+     
+
     </script>
+    <script src="slide.js"></script>
 </html>

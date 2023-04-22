@@ -16,6 +16,7 @@ class ProfileController extends Controller
         return view('profile', [
             'user' => auth()->user(),
             'tweets' => auth()->user()->tweets()->latest()->filter(request(['search']))->get(),
+            'comments' => auth()->user()->comments()->latest()->get(),
 
         ]);
     }
@@ -24,7 +25,7 @@ class ProfileController extends Controller
     {
         $alluser = User::paginate(5);
         return view ('suggestion' , [
-
+            
             'users' => $alluser,
         ]);
     }
@@ -36,11 +37,12 @@ class ProfileController extends Controller
             'tweets' => $user->user->tweets()->latest()->get(),
         ]);
     }
-      public function update (User $user)
+      public function update ()
     {
         $data = request()->validate([
             'bio' => '',
             'pphoto' =>  'image',
+    
         ]);
         if(request('pphoto')){
             
@@ -49,15 +51,11 @@ class ProfileController extends Controller
             $imageArray = ['pphoto' => $imagepath];
    
         }
-        auth()->user()->profile->update(array_merge(
+        auth()->user()->profile()->update(array_merge(
             $data,
             $imageArray ?? [],
         ));
-
         return redirect('/profile')->with('done', 'Profile Updated');
     }
-
-    
-   
         
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\User;
 use App\Models\Tweet;
 use App\Models\Following;
@@ -28,8 +29,14 @@ class TweetsController extends Controller
     // ->get()
 
     public function show($id){
+
+        $tweet =  Tweet::with('comments')->find($id);
+
+      
+
         return view('tweet', [
-            'tweet' => Tweet::find($id)
+            'tweet' => $tweet,
+            
         ]);
     }
 

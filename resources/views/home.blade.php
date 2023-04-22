@@ -45,23 +45,27 @@
                             <div class="textarea-forpost">
                                 <form action="/" method="POST" enctype="multipart/form-data">
                                     @csrf
-                        <input class="inp" type="text" name="tweets" id="" placeholder="What's happening?">
-                        @error('tweets')
-                           <p style="font-size: small; color:red">{{$message}}</p> 
-                        @enderror
-                        <br>
-                        {{-- <img class="lol" src="icon/image.svg" alt=""> --}}
-                        <label style="cursor: pointer" for="image"><img src="/icon/image.svg" alt=""></label>
-                        <input style="display: none;" type="file" name="image" id="image">
-                        @error('image')
-                        <p style="font-size: small; color:red">{{$message}}</p> 
-                     @enderror
+                      
+                         <textarea class="inp" cols="50" rows="2" type="text" name="tweets" id="" placeholder="What's happening?"></textarea>
+                         
+                         @error('tweets')
+                         <p style="font-size: small; color:red">{{$message}}</p> 
+                         @enderror
+                         <br>
+                         {{-- <img class="lol" src="icon/image.svg" alt=""> --}}
+                        <div class="upload">
+                            <label style="cursor: pointer" for="image"><img src="/icon/image.svg" alt=""></label>
+                         <input style="display: none;" type="file" name="image" id="image">
+                         @error('image')
+                         <p style="font-size: small; color:red">{{$message}}</p> 
+                      @enderror
+                         <button class="send-tweet" type="submit">Tweet</button>
+                        </div>
                         {{-- <img class="lol" src="icon/filetype-gif.svg" alt="">
                         <img class="lol" src="icon/list-ul.svg" alt="">
                         <img class="lol" src="icon/emoji-smile.svg" alt="">
                         <img class="lol" src="icon/geo-alt.svg" alt=""> --}}
                     </div>
-                        <button class="send-tweet" type="submit">Tweet</button>
                     </div>
                 </form>
                 </div>
@@ -95,14 +99,14 @@
                 <img class="img-upload" src="/storage/{{$tweet->image}}" alt="">
             </div>
             @endif
-        </a>
             <ul class="reactions">
-                <li> <img class="l-react" src="icon/chat.svg" alt=""> 0</li>
+                <li> <img class="l-react" src="icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
                 <li> <img class="l-react" src="icon/repeat.svg" alt="">0 </li>
                 <li> <img class="l-react" src="icon/heart.svg" alt=""> 0</li>
                 <li> <img class="l-react" src="icon/bar-chart.svg" alt=""> 0</li>
                 <li> <img class="l-react" src="icon/upload.svg" alt=""></li>
             </ul>
+        </a>
             @endforeach
             @else
             <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No tweets Found</h1>
@@ -115,7 +119,7 @@
             <div class="th-container">
                 <div class="search-head">
                     <img class="search" src="icon/search.svg" alt="" > 
-                <form action="/home">
+                <form action="/">
                     <input class="search-inp" type="search" name="search" id="" placeholder="Search Tweets">
                 </form>
             </div>

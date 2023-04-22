@@ -11,10 +11,8 @@ class Profile extends Model
 {
 
     protected $fillable = [
-        'user_id',
         'pphoto',
         'bio',
-
     ];
     use HasFactory;
 

@@ -25,7 +25,7 @@ class RegisterController extends Controller
         ]);
         
         auth()->login($user);
-        return redirect("/suggestion");
+        return redirect("/list");
 
        
     }

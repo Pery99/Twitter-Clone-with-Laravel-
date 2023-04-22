@@ -1,28 +1,28 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "open sans";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 }
-.main_container{
+.main_container {
     border-top: 0.5px solid whitesmoke;
     display: flex;
-    
 }
-.first_side{
+.first_side {
     position: sticky;
     top: 3px;
     height: 100vh;
     padding: 6px 25px;
     width: 20%;
-    
 }
-.f-container{
+.f-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.cnt{
+.cnt {
     display: flex;
     flex-direction: column;
     align-content: space-around;
@@ -30,7 +30,7 @@
     gap: 30px;
     /* display: inline-block; */
 }
-.nav{
+.nav {
     display: flex;
     align-items: start;
     flex-direction: column;
@@ -38,7 +38,7 @@
     padding: 8px 0;
     list-style: none;
 }
-.nav .li{
+.nav .li {
     text-decoration: none;
     color: black;
     font-size: larger;
@@ -49,20 +49,21 @@
     display: flex;
 }
 
-.nav .li:hover, .nav .li.active {
+.nav .li:hover,
+.nav .li.active {
     background-color: rgb(224, 224, 224);
     border: none;
     border-radius: 20px;
     box-shadow: 0px 5px 5px whitesmoke;
 }
-.tweet{
+.tweet {
     visibility: hidden;
 }
-.tweet-pc{
+.tweet-pc {
     width: 100%;
     text-decoration: none;
     color: white;
-    background-color: #1DA1F2;
+    background-color: #1da1f2;
     padding: 10px 18px;
     border: none;
     margin-top: 7px;
@@ -70,44 +71,43 @@
     text-align: center;
     font-weight: bold;
 }
-.tweet-pc:hover{
+.tweet-pc:hover {
     opacity: 0.8;
 }
-.profile{
+.profile {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.profile-cnt{
+.profile-cnt {
     display: flex;
     gap: 15px;
     align-items: center;
-
-} 
-.text{
+}
+.text {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.p-photo{
+.p-photo {
     width: 50px;
     height: 50px;
     border-radius: 25px;
 }
-.nav-icon{
+.nav-icon {
     width: 40px;
     height: 20px;
 }
-.tw-icon{
-    width: 40px; 
-    height: 40px; 
+.tw-icon {
+    width: 40px;
+    height: 40px;
     margin-bottom: 15px;
-    padding: 5px
+    padding: 5px;
 }
 
-#logout{
+#logout {
     border-radius: 10px;
     position: absolute;
     bottom: 120px;
@@ -115,8 +115,8 @@
     z-index: 1;
     box-shadow: 0px 0px 10px 5px rgb(148, 144, 144);
 }
-.l-out{
-    display: none; 
+.l-out {
+    display: none;
     border-radius: 10px;
     position: absolute;
     bottom: 120px;
@@ -125,7 +125,7 @@
     box-shadow: 0px 0px 10px 5px rgb(148, 144, 144);
 }
 
-.log-out{
+.log-out {
     border-radius: 10px;
     width: 100%;
     padding: 13px 0;
@@ -134,38 +134,36 @@
     background-color: white;
     font-weight: bolder;
 }
-.log-out:hover{
+.log-out:hover {
     background-color: whitesmoke;
 }
-.llo{
+.llo {
     padding: 12px;
     border-radius: 20px;
-
 }
-.llo:hover{
+.llo:hover {
     background-color: whitesmoke;
-}  
+}
 
 @media screen and (max-width: 500px) and (min-width: 300px) {
-    *{
+    * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
     }
-    .main_container{
+    .main_container {
         border-top: 0.5px solid whitesmoke;
         display: flex;
     }
-    .first_side{
+    .first_side {
         position: sticky;
         top: 30px;
         display: flex;
         height: 100vh;
         padding: 6px;
         width: 20%;
-        
     }
-    .cnt{
+    .cnt {
         display: flex;
         flex-direction: column;
         align-content: space-around;
@@ -173,7 +171,7 @@
         gap: 40px;
         width: 100%;
     }
-    #logout{
+    #logout {
         border-radius: 10px;
         position: absolute;
         bottom: 230px;
@@ -181,8 +179,8 @@
         z-index: 1;
         box-shadow: 0px 0px 10px 5px rgb(148, 144, 144);
     }
-    .l-out{
-        display: none; 
+    .l-out {
+        display: none;
         border-radius: 10px;
         position: absolute;
         bottom: 230px;
@@ -190,7 +188,7 @@
         z-index: 1;
         box-shadow: 0px 0px 10px 5px rgb(148, 144, 144);
     }
-    .nav{
+    .nav {
         display: flex;
         align-items: start;
         flex-direction: column;
@@ -198,18 +196,18 @@
         gap: 30px;
         padding: 8px 0;
         list-style: none;
-       
     }
-    .nav .li li{
+    .nav .li li {
         display: none;
     }
-    .nav .li:hover, .nav .li.active {
+    .nav .li:hover,
+    .nav .li.active {
         background-color: rgb(224, 224, 224);
         border: none;
         border-radius: 20px;
         box-shadow: 0px 5px 5px whitesmoke;
     }
-    .nav .li{
+    .nav .li {
         text-decoration: none;
         color: black;
         font-size: larger;
@@ -218,39 +216,38 @@
         padding: 5px;
         transition: 0.6s;
     }
-    .tweet-pc{
+    .tweet-pc {
         display: none;
     }
 
-    .profile{
+    .profile {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        align-items:  center;
+        align-items: center;
     }
-    
-    .profile-cnt{
+
+    .profile-cnt {
         display: flex;
         flex-direction: column;
         align-items: center;
-    
-    } 
-    .text{
+    }
+    .text {
         display: none;
     }
-    
-    .p-photo{
+
+    .p-photo {
         width: 40px;
         height: 40px;
         border-radius: 20px;
     }
-    .second_side{
+    .second_side {
         padding: 10px 0;
         border-left: 1px solid whitesmoke;
         border-right: 1px solid whitesmoke;
         width: 100%;
     }
-    .inp{
+    .inp {
         width: 100%;
         height: 10vh;
         border: none;
@@ -262,18 +259,17 @@
         overflow-wrap: break-word;
     }
 
-    .third-container{
+    .third-container {
         display: none;
-        
     }
-    .send-tweet{
+    .send-tweet {
         position: absolute;
         left: 250px;
         align-self: flex-end;
         width: 20%;
         color: white;
         cursor: pointer;
-        background-color: #1DA1F2;
+        background-color: #1da1f2;
         padding: 8px 18px;
         border: none;
         margin-top: 10px;
@@ -282,13 +278,13 @@
         font-weight: bold;
         opacity: 0.8;
     }
-    .menue{
+    .menue {
         position: absolute;
         left: 230px;
         cursor: pointer;
     }
 
-    .reactions{
+    .reactions {
         display: flex;
         justify-content: center;
         gap: 35px;
@@ -298,34 +294,34 @@
         list-style: none;
         border-bottom: 1px solid whitesmoke;
     }
-    .id h5{
+    .id h5 {
         display: none;
     }
-    .id h3{
+    .id h3 {
         font-size: small;
     }
-    .id{
+    .id {
         display: flex;
         position: relative;
         gap: 5px;
         align-items: center;
     }
-    .image-post{
+    .image-post {
         display: flex;
         justify-content: center;
         padding: 5px 20px;
     }
-    .post{
+    .post {
         display: flex;
         justify-content: start;
         padding: 10px 5px;
     }
-    .img-upload{
+    .img-upload {
         width: 350px;
         height: 300px;
         border-radius: 15px;
-      }
-    .view-tweet{
+    }
+    .view-tweet {
         padding: 4% 8%;
         display: flex;
         align-items: center;
@@ -334,15 +330,15 @@
         width: 100%;
         transition: 0.5ss;
     }
-    .cover-photo{
+    .cover-photo {
         background-color: rgb(206, 198, 198);
         height: 15vh;
     }
-    .profile-picture{
+    .profile-picture {
         position: absolute;
         top: 160px;
     }
-    .pp-cnt{
+    .pp-cnt {
         position: relative;
         padding: 0 10px;
         display: flex;
@@ -350,7 +346,7 @@
         align-items: center;
         gap: 190px;
     }
-    .profile-photo{
+    .profile-photo {
         width: 60px;
         height: 60px;
         border-radius: 30px;
@@ -358,22 +354,22 @@
         transition: 0.3s;
         cursor: pointer;
     }
-    .profile-photo:hover{
+    .profile-photo:hover {
         opacity: 0.8;
     }
-    .button{
-       padding: 5px 10px;
-       background-color: transparent;
-       color: rgb(255, 255, 255);
-       border: 2px solid #201f1f;
-       background-color: #201f1f;
-       border-radius: 20px; 
-       transition: 0.3s;
-       cursor: pointer;
-       align-self: last baseline;
-       font-size: small;
+    .button {
+        padding: 5px 10px;
+        background-color: transparent;
+        color: rgb(255, 255, 255);
+        border: 2px solid #201f1f;
+        background-color: #201f1f;
+        border-radius: 20px;
+        transition: 0.3s;
+        cursor: pointer;
+        align-self: last baseline;
+        font-size: small;
     }
-    .edit-profile{
+    .edit-profile {
         background-color: rgb(236, 224, 224);
         position: absolute;
         top: 40%;
@@ -384,35 +380,34 @@
         box-shadow: 0px 5px 10px rgb(102, 99, 99);
         display: none;
     }
-    .sections{
+    .sections {
         width: 100%;
         border-bottom: 1px solid whitesmoke;
-         margin-top: 3%;
+        margin-top: 3%;
     }
-    .sec-cnt{
+    .sec-cnt {
         display: flex;
         justify-content: space-between;
         margin: 0;
         padding: 0;
     }
-    .sec-cnt h4{
+    .sec-cnt h4 {
         cursor: pointer;
         padding: 12px;
         font-size: small;
     }
-    .sec-cnt h4:hover{
+    .sec-cnt h4:hover {
         background-color: whitesmoke;
     }
-    .photo-display{
+    .photo-display {
         position: absolute;
         top: 20%;
         left: 20%;
         z-index: 1;
         display: none;
-     }
-     .big-photo{
-         height: 350px;
-         width: 350px;
-     }
-    
+    }
+    .big-photo {
+        height: 350px;
+        width: 350px;
+    }
 }

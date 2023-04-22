@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Tweet;
+use App\Models\Comment;
 use App\Models\Profile;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -79,4 +80,11 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'followers', 'follower_id', 'following_id')->withTimestamps();
     }
 
+    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    
 }

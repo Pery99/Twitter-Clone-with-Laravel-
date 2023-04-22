@@ -139,7 +139,7 @@
                 <img class="p-photo" src="/storage/{{$user->profile->pphoto}}" alt="">  
                 <div class="f-text">
                     <p style="font-size: large; font-weight: bold;">{{$user->name}}</p>
-                    <p style="font-size: small;">{{'@' . $user->username}}</p>
+                    <p style="font-size: medium;">{{'@' . $user->username}}</p>
                 </div>
             </div>     
             <form action=" /users/{{$user->username}}/follow" method="POST">
@@ -158,6 +158,7 @@
         {{$users->links()}}
         <div>
             <a  style="display: flex; justify-content:center; text-decoration: none; color:#03a9f4; margin:10px 0;" href="/">Skip</a>
+            <p style="text-align: center">You have to follow a user before you can view their post.</p>
     </div>  
 </body>
 <script src="https://cdn.tailwindcss.com"></script>

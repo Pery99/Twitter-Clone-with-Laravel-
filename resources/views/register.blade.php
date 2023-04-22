@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login Page</title>
+    <title>Register Page</title>
   </head>
   <style>
     * {

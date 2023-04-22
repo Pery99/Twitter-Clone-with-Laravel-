@@ -34,7 +34,7 @@
                                     <div class="prof">
                                         <a href="/profile/{{$tweet->user->profile['id']}}"><img class="p-photo" src="{{$tweet->user->profile->pphoto ? asset('storage/' . $tweet->user->profile->pphoto) : asset('images/default.jpeg')}}" alt=""></a>
                                         <div class="id">
-                                            <h3>{{$tweet->user->name}}</h3><p style="font-size: smaller;">{{'@'. $tweet->user->username}}</p><h5>.1h</h5>
+                                            <h3>{{$tweet->user->name}}</h3><p style="font-size: smaller;">{{'@'. $tweet->user->username}}</p><h5>{{$tweet->created_at}}</h5>
                                             <img class="menue" src="icon/three-dots.svg" alt="">
                                         </div>
                                     </div>
@@ -54,14 +54,43 @@
                     @endif
                     <p style="display: flex; justify-content:end; padding:0 5px;">{{$tweet->created_at}}</p>
                         <ul class="reactions">
-                            <li> <img class="l-react" src="/icon/chat.svg" alt=""> 0</li>
+                            <li> <img class="l-react" src="/icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
                             <li> <img class="l-react" src="/icon/repeat.svg" alt="">0 </li>
-                            <li> <img class="l-react" src="/icon/heart.svg" alt=""> 0</li>
+                            <li> <img class="l-react" src="/icon/heart.svg" alt="">0 </li>
                             <li> <img class="l-react" src="/icon/bar-chart.svg" alt=""> 0</li>
                             <li> <img class="l-react" src="/icon/upload.svg" alt=""></li>
                         </ul>
+
+                        <div class="comments">
+                            <h4 style="text-align: start">Comments</h4>
+                        @foreach ($tweet->comments as $comment)
+                            <div class="com-bd">
+                                @if (auth()->user()->id == $comment->user->profile['id'])
+                                <a href="/profile"> <img class="p-photo" src="/storage/{{$comment->user->profile->pphoto}}" alt=""></a>
+                                @else    
+                                <a href="/profile/{{$comment->user->profile['id']}}"> <img class="p-photo" src="/storage/{{$comment->user->profile->pphoto}}" alt=""></a>
+                                @endif
+                                <div class="details">
+                                   <div class="rep">
+                                    <h3>{{ $comment->user->name}}</h3>
+                                    <p>{{'@'. $comment->user->username}}</p>
+                                   </div>
+                                    <p style="color:gray">replying to <span style="color:rebeccapurple; cursor:pointer"> {{'@'. $tweet->user->username}}</span></p>
+                            
+                                    <p>{{$comment->comment}}</p>
+                                </div>
+                            </div>
+                       
+                            
+                        @endforeach
+                        </div>
            
-            <p>Comments will be displayed here later... :)</p>
+          <form  action="/comment" method="POST" class="write-comment">
+            @csrf
+            <input type="hidden"  name="tweet_id" value="{{$tweet->id}}" id="">
+           <textarea name="comment" class="comment" id="" cols="75" rows="1" placeholder="Tweet your reply" required></textarea>
+            <Button type="submit" class="send">Reply</Button>
+          </form>
         </div>
                 </div>
             </div> 
@@ -84,7 +113,7 @@
                                     
                                 <a href="/profile/{{$tweet->user->profile['id']}}"><img class="p-photo" src="{{$tweet->user->profile->pphoto ? asset('storage/' . $tweet->user->profile->pphoto) : asset('images/default.jpeg')}}" alt=""></a>
                                 @endif
-                    <div class="f-text">
+                        <div class="f-text">
                         <p style="font-size: large; font-weight: bold;">{{$tweet->user->name}}</p>
                         <p style="font-size: small;">{{'@' . $tweet->user->username}}</p>
                     </div>
