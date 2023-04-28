@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookmarkController;
 use App\Models\User;
 use App\Models\Tweets;
 use Illuminate\Support\Facades\Auth;
@@ -31,9 +32,11 @@ Route::get('/register', function(){
     return view('register');
 });
 
-Route::get('/bookmark', function() {
-    return view('bookmark');
-})->middleware(['auth'])->name('bookmark');
+Route::get('/bookmark', [BookmarkController::class, 'show'])->middleware(['auth'])->name('bookmark');
+
+Route::post('/bookmark', [BookmarkController::class, 'store'])->middleware('auth');
+Route::delete('/bookmark/{id}', [BookmarkController::class, 'destroy'])->middleware('auth');
+
 
 Route::get('/explore', function() {
     return view('explore');

@@ -54,8 +54,21 @@
                     @endif
                     <p style="display: flex; justify-content:end; padding:0 5px;">{{$tweet->created_at}}</p>
                         <ul class="reactions">
-                            <li> <img class="l-react" src="/icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
-                            <li> <img class="l-react" src="/icon/repeat.svg" alt="">0 </li>
+                           <label for="comment"> <li> <img class="l-react" src="/icon/chat.svg" alt="">{{count($tweet->comments)}}</li></label>
+                          {{-- @if ($tweet->bookmarks->tweet_id = $tweet->id)
+                           <form action="/bookmark/{{$tweet->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input  type="hidden" name="tweet_id" id="" value="{{$tweet->id}}">
+                                <button style="background:none; border:none" type="submit"> <li> <img class="l-react" src="/icon/bookmark.svg" alt="">{{count($tweet->bookmarks)}} </li> </button>
+                            </form> 
+                              @else  --}}
+                            <form action="/bookmark" method="POST">
+                                @csrf
+                                <input  type="hidden" name="tweet_id" id="" value="{{$tweet->id}}">
+                                <button style="background:none; border:none" type="submit"> <li> <img class="l-react" src="/icon/bookmark.svg" alt="">{{count($tweet->bookmarks)}} </li> </button>
+                            </form>
+                            {{-- @endif --}}
                             <li> <img class="l-react" src="/icon/heart.svg" alt="">0 </li>
                             <li> <img class="l-react" src="/icon/bar-chart.svg" alt=""> 0</li>
                             <li> <img class="l-react" src="/icon/upload.svg" alt=""></li>
@@ -72,7 +85,7 @@
                                 @endif
                                 <div class="details">
                                    <div class="rep">
-                                    <h3>{{ $comment->user->name}}</h3>
+                                    <h3>{{$comment->user->name}}</h3>
                                     <p>{{'@'. $comment->user->username}}</p>
                                    </div>
                                     <p style="color:gray">replying to <span style="color:rebeccapurple; cursor:pointer"> {{'@'. $tweet->user->username}}</span></p>
@@ -88,7 +101,7 @@
           <form  action="/comment" method="POST" class="write-comment">
             @csrf
             <input type="hidden"  name="tweet_id" value="{{$tweet->id}}" id="">
-           <textarea name="comment" class="comment" id="" cols="75" rows="1" placeholder="Tweet your reply" required></textarea>
+           <textarea name="comment" class="comment" id="comment" cols="75" rows="1" placeholder="Tweet your reply" required></textarea>
             <Button type="submit" class="send">Reply</Button>
           </form>
         </div>

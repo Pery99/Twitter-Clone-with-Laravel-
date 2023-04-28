@@ -23,11 +23,11 @@
 }
 .cover-photo {
     background-color: rgb(206, 198, 198);
-    height: 32vh;
+    height: 28vh;
 }
 .profile-picture {
     position: absolute;
-    top: 220px;
+    top: 200px;
 }
 .pp-cnt {
     position: relative;
@@ -35,7 +35,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 400px;
+    gap: 380px;
 }
 .profile-photo {
     width: 135px;
@@ -50,7 +50,6 @@
 }
 .button {
     padding: 8px 20px;
-    background-color: transparent;
     color: rgb(255, 255, 255);
     font-weight: bolder;
     border: 2px solid #201f1f;
@@ -61,7 +60,7 @@
 }
 
 .rest {
-    margin-top: 18%;
+    margin-top: 15%;
 }
 .profile-details {
     display: flex;
@@ -87,6 +86,16 @@
 }
 .tweetss {
     padding: 2% 0;
+    animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 .view-tweet {
     padding: 2% 4%;
@@ -366,4 +375,12 @@
 .all-img {
     display: none;
     padding: 1em 0 1em 4em;
+}
+.profile-photo-label {
+    background-color: white;
+    width: 100%;
+    padding: 0.7em;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 1px solid black;
 }

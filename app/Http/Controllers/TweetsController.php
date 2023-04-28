@@ -13,13 +13,14 @@ class TweetsController extends Controller
 {
     
     public function index() {
+        $forYou = Tweet::latest()->latest()->filter(request(['search']))->get();
         $users = auth()->user()->following()->pluck('following_id');
         $tweets = Tweet::whereIn('user_id', $users)->latest()->filter(request(['search']))
         ->get();
         
         return view('home', [
-           
-            'tweets' => $tweets
+           'forYou' => $forYou,
+            'followedUserTweets' => $tweets
         ]);
 
     }
@@ -29,11 +30,8 @@ class TweetsController extends Controller
     // ->get()
 
     public function show($id){
-
-        $tweet =  Tweet::with('comments')->find($id);
-
-      
-
+       
+        $tweet =  Tweet::with('comments')->find($id); 
         return view('tweet', [
             'tweet' => $tweet,
             

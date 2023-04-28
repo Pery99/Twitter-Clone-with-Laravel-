@@ -31,7 +31,7 @@
                     <div class="profile-cnt">
                         <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}"alt="">
                         <div class="text">
-                            <p style="font-size:medium; font-weight: bold;">{{ auth()->user()->name}}</p><p>{{'@'. auth()->user()->username}}</p>
+                            <p class="username">{{ auth()->user()->name}}</p><p>{{'@'. auth()->user()->username}}</p>
                         </div>
                     </div>
                     <div class="opt">

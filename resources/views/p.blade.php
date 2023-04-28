@@ -6,6 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{{$user->user->username}}</title>
         <link rel="stylesheet" href="/css/userprofile.css">
+        <style>
+            .active {
+                border-bottom: 2px solid #1da1f2;
+            }
+        </style>
     </head>
     <body>
        <div class="main_container">
@@ -70,14 +75,14 @@
                 </div>
            </div>
            <div class="sections">
-                <div class="sec-cnt">
-                <h4 style="border-bottom: 2px solid #1DA1F2; border-bottom-radius:20%">Tweets</h4>
-                <h4>Tweets & replies</h4>
-                <h4>Media</h4>
+               <div class="sec-cnt">
+                <h4 class="tablinks active" onclick="slide(event, 'tweet')" id="defaultOpen">Tweets</h4>
+                <h4 class="tablinks" onclick="slide(event, 'tweetAndReply')">Tweets & replies ({{count($comments)}})</h4>
+                <h4 class="tablinks" onclick="slide(event, 'media')">Media</h4>
                 <h4>Likes</h4>
                 </div>
            </div>
-           <div class="tweetss">
+            <div class="tweetss" id="tweet">
             @unless (count($tweets) == 0)
             @foreach ($tweets as $tweet) 
             <div class="view-tweet">
@@ -113,6 +118,39 @@
         @endforeach
         @else
         <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No tweets found</h1>
+            @endunless
+           </div>
+
+           <div class="tweetss" id="tweetAndReply" style="display: none;">
+            @unless (count($comments) == 0)
+            @foreach ($comments as $comment) 
+            @php 
+            $id = rand();
+            @endphp   
+            <div id = "id{{$id}}" class="view-tweet">
+                <div class="info">
+                    <div class="prof">
+                        <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
+                        <div class="id">
+                            <h3>{{$comment->user->name}}</h3><p style="font-size: large;">{{'@'. $comment->user->username}}</p><h5>{{$comment->created_at}}</h5>
+                            <img onclick="menue('id{{$id}}')" class="menue" src="icon/three-dots.svg" alt="">
+                        </div>
+                        <form class="men-ue" id="" action="{{""}}">
+                            <button class="menue-li">Pin Post</button>
+                            <button class="menue-li">Delete Post</button>
+                            <button class="menue-li">Edit Post</button>
+                        </form>
+                    </div>
+                         <div class="post">
+                        <br>
+                       {{-- <p style="color:gray">replying to <span style="color:rebeccapurple; cursor:pointer"> {{'@'. $tweet->user->username}}</span></p> --}}
+                        <p style="font-weight: bold;">{{$comment->comment}}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        @else
+        <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No Comments made</h1>
             @endunless
            </div>
            {{-- End... --}}
@@ -225,5 +263,24 @@
         document.querySelector('.photo-display').style.display = 'none';
          document.querySelector('.second_side').style.filter = 'none';
     }
+
+    function slide(evt, tabName) {
+    var i, tweetss, tablinks;
+
+    tweetss = document.getElementsByClassName("tweetss");
+    for (let i = 0; i < tweetss.length; i++) {
+        tweetss[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
     </script>
+    
 </html>

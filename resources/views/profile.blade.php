@@ -58,8 +58,8 @@
            </div>
            <div class="sections">
                 <div class="sec-cnt">
-                <h4 class="tablinks" onclick="slide(event, 'tweet')" id="defaultOpen">Tweets</h4>
-                <h4 class="tablinks" onclick="slide(event, 'tweetAndReply')">Tweets & replies</h4>
+                <h4 class="tablinks active" onclick="slide(event, 'tweet')" id="defaultOpen">Tweets</h4>
+                <h4 class="tablinks" onclick="slide(event, 'tweetAndReply')">Tweets & replies ({{count($comments)}})</h4>
                 <h4 class="tablinks" onclick="slide(event, 'media')">Media</h4>
                 <h4>Likes</h4>
                 </div>
@@ -136,7 +136,7 @@
                 
                          <div class="post">
                         <br>
-                           <p style="color:gray">replying to <span style="color:rebeccapurple; cursor:pointer"> {{'@'. $comment->user->username}}</span></p>
+                       {{-- <p style="color:gray">replying to <span style="color:rebeccapurple; cursor:pointer"> {{'@'. $tweet->user->username}}</span></p> --}}
                         <p style="font-weight: bold;">{{$comment->comment}}</p>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
             @endunless
            </div>
 
-           <div class="all-img" id="media">
+           {{-- <div class="all-img" id="media" style="display:none">
             @unless (count($tweets) == 0)
             @foreach ($tweets as $tweet)  
             <img class="all-img-upload" src="/storage/{{$tweet->image}}" alt="">
@@ -155,7 +155,7 @@
             @else
             <h1 style="text-align: center; margin-top:20px">No image yet..</h1>
             @endunless
-        </div>
+        </div> --}}
            {{-- End... --}}
            </div>
         </div>
@@ -244,8 +244,8 @@
     <form action="/profile" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
-        <label for="">Update profile photo</label><br>
-        <input class="edit" type="file" name="pphoto" id="" >
+        <label class="profile-photo-label" for="pphoto">Change Profile Photo</label>
+        <input style="display: none" class="edit" type="file" name="pphoto" id="pphoto" >
         @error('pphoto')
             <p style="font-size: small">{{$message}}</p>
         @enderror
@@ -262,34 +262,6 @@
     <p style="cursor: pointer; font-size: 30px; width: 3%; margin-left: 90%; margin-bottom:6%" onclick="exitPhoto()">&times</p>
     <img class="big-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
 </div>
-    <script>
-        function menue(id) {
-            var post = document.getElementById(id);
-            var first = post.querySelector('.men-ue');
-            first.classList.toggle("men-ue1");
-        }
-
-
-    function edit() {
-        document.querySelector('.edit-profile').style.display = 'block';
-        document.querySelector('.second_side').style.filter = 'blur(5px)';
-    }
-
-    function exit() {
-        document.querySelector('.edit-profile').style.display = 'none';
-         document.querySelector('.second_side').style.filter = 'none';
-    }
-    function showPhoto() {
-        document.querySelector('.photo-display').style.display = 'block';
-        document.querySelector('.second_side').style.filter = 'blur(5px)';
-    }
-
-    function exitPhoto() {
-        document.querySelector('.photo-display').style.display = 'none';
-         document.querySelector('.second_side').style.filter = 'none';
-    }
-     
-
-    </script>
-    <script src="slide.js"></script>
+   
+    <script src="profile.js"></script>
 </html>

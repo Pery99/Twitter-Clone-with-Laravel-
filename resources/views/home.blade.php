@@ -34,8 +34,8 @@
                     {{-- Header --}}
                     <div class="header-container">
                         <div class="header">
-                            <a href="#" style="color: #1DA1F2">For you</a>
-                            <a href="#">Following</a>
+                            <p id="default" class="tabLink active" onclick="tabSwitch(event, 'forYou')">For you</p>
+                            <p class="tabLink" onclick="tabSwitch(event, 'following')">Following</p>
                         </div>
                     </div>
                     {{-- Div of the section to post tweet --}}
@@ -46,35 +46,81 @@
                                 <form action="/" method="POST" enctype="multipart/form-data">
                                     @csrf
                       
-                         <textarea class="inp" cols="50" rows="2" type="text" name="tweets" id="" placeholder="What's happening?"></textarea>
+                         <textarea class="inp" cols="50" rows="2" type="text" name="tweets" id="oop" placeholder="What's happening?"></textarea>
                          
                          @error('tweets')
                          <p style="font-size: small; color:red">{{$message}}</p> 
                          @enderror
                          <br>
                          {{-- <img class="lol" src="icon/image.svg" alt=""> --}}
-                        <div class="upload">
-                            <label style="cursor: pointer" for="image"><img src="/icon/image.svg" alt=""></label>
-                         <input style="display: none;" type="file" name="image" id="image">
-                         @error('image')
-                         <p style="font-size: small; color:red">{{$message}}</p> 
-                      @enderror
-                         <button class="send-tweet" type="submit">Tweet</button>
+                         <div class="upload">
+                             <label title="Upload Photo" style="cursor: pointer" for="image"><img src="/icon/image.svg" alt=""></label>
+                             <input style="display: none;" type="file" name="image" id="image">
+                             @error('image')
+                             <p style="font-size: small; color:red">{{$message}}</p> 
+                             @enderror
+                             <button class="send-tweet" type="submit">Tweet</button>
+                            </div>
+                            {{-- <img class="lol" src="icon/filetype-gif.svg" alt="">
+                            <img class="lol" src="icon/list-ul.svg" alt="">
+                            <img class="lol" src="icon/emoji-smile.svg" alt="">
+                            <img class="lol" src="icon/geo-alt.svg" alt=""> --}}
                         </div>
-                        {{-- <img class="lol" src="icon/filetype-gif.svg" alt="">
-                        <img class="lol" src="icon/list-ul.svg" alt="">
-                        <img class="lol" src="icon/emoji-smile.svg" alt="">
-                        <img class="lol" src="icon/geo-alt.svg" alt=""> --}}
-                    </div>
                     </div>
                 </form>
-                </div>
-                {{-- Div of the section where posts are viewed --}}
-                @unless (count($tweets) == 0)
-                @foreach ($tweets as $tweet) 
+            </div>
+            {{-- Div of the section where posts are viewed --}}
+             <div class="prefrence" id="forYou">
+                @unless (count($forYou) == 0)
+                @foreach ($forYou as $tweet) 
                 
                
               
+                <a title="{{$tweet->user->username . ' tweet'}}" href="/tweet/{{$tweet['id']}}"  id="content" style="text-decoration: none; color:black;">    
+                <div class="view-tweet">
+                    <div class="info">
+                        <div class="prof">
+                           <img class="p-photo" src="{{$tweet->user->profile->pphoto ? asset('storage/' . $tweet->user->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
+                            <div class="id">
+                                <h3>{{$tweet->user->name}}</h3><p style="font-size: medium;">{{'@'. $tweet->user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                <img class="menue" src="icon/three-dots.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="post">
+                            <br>
+                            <p style="font-weight: bold;">{{$tweet->tweets}}</p>
+                        </div>
+                    
+                </div>
+            </div>
+            @if ($tweet->image == '')
+                <p></p>
+            @else
+            <div class="image-post">
+                <img class="img-upload" src="/storage/{{$tweet->image}}" alt="">
+            </div>
+            @endif
+            <ul class="reactions">
+                <li> <img class="l-react" src="icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
+                <li> <img class="l-react" src="/icon/bookmark.svg" alt="">{{count($tweet->bookmarks)}}</li>
+                <li> <img class="l-react" src="icon/heart.svg" alt=""> 0</li>
+                <li> <img class="l-react" src="icon/bar-chart.svg" alt=""> 0</li>
+                <li> <img class="l-react" src="icon/upload.svg" alt=""></li>
+            </ul>
+        </a>
+            @endforeach
+            @else
+            <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No tweets Found</h1>
+                @endunless
+            </div>
+
+
+            <div class="prefrence" id="following" style="display: none">
+                @unless (count($followedUserTweets) == 0)
+                @foreach ($followedUserTweets as $tweet) 
+                
+               
+        
                 <a href="/tweet/{{$tweet['id']}}"  id="content" style="text-decoration: none; color:black;">    
                 <div class="view-tweet">
                     <div class="info">
@@ -101,7 +147,7 @@
             @endif
             <ul class="reactions">
                 <li> <img class="l-react" src="icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
-                <li> <img class="l-react" src="icon/repeat.svg" alt="">0 </li>
+                <li> <img class="l-react"  src="/icon/bookmark.svg" alt="">{{count($tweet->bookmarks)}} </li>
                 <li> <img class="l-react" src="icon/heart.svg" alt=""> 0</li>
                 <li> <img class="l-react" src="icon/bar-chart.svg" alt=""> 0</li>
                 <li> <img class="l-react" src="icon/upload.svg" alt=""></li>
@@ -109,9 +155,10 @@
         </a>
             @endforeach
             @else
-            <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No tweets Found</h1>
+            <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">Nothing Found</h1>
                 @endunless
             </div>
+        </div>
         </div>
     </div> 
            {{-- Div containing the search and the trending post --}}
@@ -190,6 +237,6 @@
     </div>
 </body>
 @endsection
-
+<script src="home.js"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 </html>

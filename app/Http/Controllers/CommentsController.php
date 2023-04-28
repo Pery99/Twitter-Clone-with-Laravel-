@@ -9,10 +9,7 @@ use Illuminate\Http\Request;
 class CommentsController extends Controller
 {
     public function store(Request $request) {
-
-       
-
-       
+   
        auth()->user()->comments()->create([
             'tweet_id' => $request->tweet_id,
             'comment' => $request->comment,

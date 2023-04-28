@@ -13,11 +13,16 @@ use Illuminate\Validation\Rules\Unique;
 class ProfileController extends Controller
 {
     Public function index() {
-        return view('profile', [
-            'user' => auth()->user(),
-            'tweets' => auth()->user()->tweets()->latest()->filter(request(['search']))->get(),
-            'comments' => auth()->user()->comments()->latest()->get(),
+        
+        $user = auth()->user();
+        $tweets = auth()->user()->tweets()->latest()->filter(request(['search']))->get();
+        $comments = auth()->user()->comments()->latest()->get();
 
+        return view('profile', [
+            'user' => $user,
+            'tweets' => $tweets,
+            'comments' => $comments,
+            
         ]);
     }
     
@@ -35,6 +40,7 @@ class ProfileController extends Controller
         return view('p', [
             'user' => $user,
             'tweets' => $user->user->tweets()->latest()->get(),
+            'comments' => $user->user->comments()->latest()->get(),
         ]);
     }
       public function update ()

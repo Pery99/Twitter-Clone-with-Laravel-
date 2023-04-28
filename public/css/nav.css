@@ -107,6 +107,13 @@
     padding: 5px;
 }
 
+.username {
+    font-size: medium;
+    font-weight: bold;
+}
+.username::first-letter {
+    text-transform: uppercase;
+}
 #logout {
     border-radius: 10px;
     position: absolute;
