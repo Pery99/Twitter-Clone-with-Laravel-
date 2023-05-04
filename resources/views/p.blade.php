@@ -63,7 +63,11 @@
            </div>
            <div class="rest">
              <div class="profile-details">
-                <h2>{{$user->user->name}}</h2>
+                @if ($user->user->followers->count() >= 3)
+                <h2>{{$user->user->name}}&check;</h2>
+                    @else
+                     <h2>{{$user->user->name}}</h2>
+                @endif
                 <p class="whitesmoke">{{'@' . $user->user->username}}</p>
                 <br>
                 <p>{{$user->bio}}</p>
@@ -130,7 +134,7 @@
             <div id = "id{{$id}}" class="view-tweet">
                 <div class="info">
                     <div class="prof">
-                        <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
+                        <img class="p-photo" src="{{$comment->user->profile->pphoto ? asset('storage/' . $comment->user->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
                         <div class="id">
                             <h3>{{$comment->user->name}}</h3><p style="font-size: large;">{{'@'. $comment->user->username}}</p><h5>{{$comment->created_at}}</h5>
                             <img onclick="menue('id{{$id}}')" class="menue" src="icon/three-dots.svg" alt="">

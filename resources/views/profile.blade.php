@@ -45,7 +45,11 @@
            </div>
            <div class="rest">
              <div class="profile-details">
-                <h2>{{$user->name}}</h2>
+                @if ($user->followers->count() >= 3)
+                <h2>{{$user->name}}&check;</h2>
+                    @else
+                     <h2>{{$user->name}}</h2>
+                @endif
                 <p class="whitesmoke">{{'@' . $user->username}}</p>
                 <br>
                 <p class="bio">{{$user->profile->bio}}</p>
@@ -75,7 +79,11 @@
                     <div class="prof">
                         <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
                         <div class="id">
-                            <h3>{{$user->name}}</h3><p style="font-size: large;">{{'@'. $user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                @if ($tweet->user->followers->count() >= 3)
+                                 <h3>{{$tweet->user->name}}&check;</h3><p style="font-size:small;">{{'@'. $tweet->user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                @else
+                                   <h3>{{$tweet->user->name}}</h3><p style="font-size:small;">{{'@'. $tweet->user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                            @endif
                             <img onclick="menue('id{{$id}}')" class="menue" src="icon/three-dots.svg" alt="">
                         </div>
                         <form class="men-ue" id="" action="{{""}}">
@@ -101,9 +109,9 @@
             @endif
             <ul class="reactions">
                 <li> <img class="l-react" src="/icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
-                <li> <img class="l-react" src="/icon/repeat.svg" alt="">0</li>
+                <li> <img class="l-react" src="/icon/bookmark.svg" alt="">{{count($tweet->bookmarks)}}</li>
                 <li> <img class="l-react" src="/icon/heart.svg" alt="">0</li>
-                <li> <img class="l-react" src="/icon/bar-chart.svg" alt="">0</li>
+                <li> <img class="l-react" src="/icon/repeat.svg" alt="">0</li>
                 <li> <img class="l-react" src="/icon/upload.svg" alt=""></li>
             </ul>
         </a>
@@ -124,7 +132,12 @@
                     <div class="prof">
                         <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
                         <div class="id">
-                            <h3>{{$user->name}}</h3><p style="font-size: large;">{{'@'. $user->username}}</p><h5>{{$comment->created_at}}</h5>
+                             @if ($user->followers->count() >= 3)
+                                 <h3>{{$user->name}}&check;</h3><p style="font-size:small;">{{'@'. $user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                @else
+                                   <h3>{{$user->name}}</h3><p style="font-size:small;">{{'@'. $user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                            @endif
+                            {{-- <h3>{{$user->name}}</h3><p style="font-size: large;">{{'@'. $user->username}}</p><h5>{{$comment->created_at}}</h5> --}}
                             <img onclick="menue('id{{$id}}')" class="menue" src="icon/three-dots.svg" alt="">
                         </div>
                         <form class="men-ue" id="" action="{{""}}">
@@ -146,17 +159,6 @@
         <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No Comments made</h1>
             @endunless
            </div>
-
-           {{-- <div class="all-img" id="media" style="display:none">
-            @unless (count($tweets) == 0)
-            @foreach ($tweets as $tweet)  
-            <img class="all-img-upload" src="/storage/{{$tweet->image}}" alt="">
-            @endforeach
-            @else
-            <h1 style="text-align: center; margin-top:20px">No image yet..</h1>
-            @endunless
-        </div> --}}
-           {{-- End... --}}
            </div>
         </div>
 

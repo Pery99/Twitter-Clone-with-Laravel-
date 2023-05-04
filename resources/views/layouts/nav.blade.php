@@ -31,7 +31,11 @@
                     <div class="profile-cnt">
                         <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}"alt="">
                         <div class="text">
-                            <p class="username">{{ auth()->user()->name}}</p><p>{{'@'. auth()->user()->username}}</p>
+                             @if (auth()->user()->followers->count() >= 3)
+                                 <p class="username">{{ auth()->user()->name}}&check;</p><p>{{'@'. auth()->user()->username}}</p>
+                                @else
+                                 <p class="username">{{ auth()->user()->name}}</p><p>{{'@'. auth()->user()->username}}</p>
+                            @endif
                         </div>
                     </div>
                     <div class="opt">

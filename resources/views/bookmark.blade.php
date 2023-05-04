@@ -15,9 +15,10 @@
 
        <div class="second_side">
             <div class="s-container">
+                <h2>Bookmarks</h2>
+
                 @unless (count($tweets)== 0)
                     
-               
                 @foreach ($tweets as $tweet)
                     <a href="/tweet/{{$tweet['id']}}"  id="content" style="text-decoration: none; color:black;">    
                 <div class="view-tweet">
@@ -53,7 +54,7 @@
         </a>
                 @endforeach
                  @else
-                <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">Bookmark is empty</h1>
+                <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">Nothing found</h1>
                 @endunless
             </div>
         </div>

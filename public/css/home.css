@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 .second_side {
     padding: 10px 0;
@@ -13,6 +14,7 @@
 .tabLink {
     cursor: pointer;
 }
+
 .active {
     color: #1da1f2;
 }
@@ -138,9 +140,10 @@
     padding: 10px 0;
 }
 .img-upload {
-    width: 350px;
-    height: 300px;
-    border-radius: 15px;
+    width: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .l-react {
     cursor: pointer;
@@ -267,4 +270,17 @@ footer {
     to {
         opacity: 1;
     }
+}
+.post-end {
+    text-align: center;
+}
+.post-end .refresh {
+    background-color: #1da1f2;
+    border-radius: 15px;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    border: none;
+    font-weight: bold;
 }

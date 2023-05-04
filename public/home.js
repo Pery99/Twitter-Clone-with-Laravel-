@@ -14,4 +14,3 @@ function tabSwitch(event, change) {
     document.getElementById(change).style.display = "block";
     event.currentTarget.className += " active";
 }
-

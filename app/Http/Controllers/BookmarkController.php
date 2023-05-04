@@ -25,7 +25,7 @@ class BookmarkController extends Controller
     {
        
         $save = auth()->user()->bookmarks()->pluck('tweet_id');
-        $bookmark = Tweet::whereIn('id', $save)->latest()->get();
+        $bookmark = Tweet::whereIn('id', $save)->latest()->filter(request(['search']))->get();
         return view('bookmark', [
             'tweets' => $bookmark,
         ]);

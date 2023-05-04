@@ -94,6 +94,7 @@
 }
 
 .view-tweet {
+    border-top: 1px solid whitesmoke;
     padding: 2% 4%;
     display: flex;
     align-items: center;

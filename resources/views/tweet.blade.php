@@ -34,7 +34,11 @@
                                     <div class="prof">
                                         <a href="/profile/{{$tweet->user->profile['id']}}"><img class="p-photo" src="{{$tweet->user->profile->pphoto ? asset('storage/' . $tweet->user->profile->pphoto) : asset('images/default.jpeg')}}" alt=""></a>
                                         <div class="id">
-                                            <h3>{{$tweet->user->name}}</h3><p style="font-size: smaller;">{{'@'. $tweet->user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                             @if ($tweet->user->followers->count() >= 3)
+                                        <h3>{{$tweet->user->name}}&check;</h3><p style="font-size: medium;">{{'@'. $tweet->user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                            @else
+                                            <h3>{{$tweet->user->name}}</h3><p style="font-size: medium;">{{'@'. $tweet->user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                        @endif
                                             <img class="menue" src="icon/three-dots.svg" alt="">
                                         </div>
                                     </div>
@@ -55,14 +59,7 @@
                     <p style="display: flex; justify-content:end; padding:0 5px;">{{$tweet->created_at}}</p>
                         <ul class="reactions">
                            <label for="comment"> <li> <img class="l-react" src="/icon/chat.svg" alt="">{{count($tweet->comments)}}</li></label>
-                          {{-- @if ($tweet->bookmarks->tweet_id = $tweet->id)
-                           <form action="/bookmark/{{$tweet->id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input  type="hidden" name="tweet_id" id="" value="{{$tweet->id}}">
-                                <button style="background:none; border:none" type="submit"> <li> <img class="l-react" src="/icon/bookmark.svg" alt="">{{count($tweet->bookmarks)}} </li> </button>
-                            </form> 
-                              @else  --}}
+                         
                             <form action="/bookmark" method="POST">
                                 @csrf
                                 <input  type="hidden" name="tweet_id" id="" value="{{$tweet->id}}">
@@ -70,7 +67,7 @@
                             </form>
                             {{-- @endif --}}
                             <li> <img class="l-react" src="/icon/heart.svg" alt="">0 </li>
-                            <li> <img class="l-react" src="/icon/bar-chart.svg" alt=""> 0</li>
+                            <li> <img class="l-react" src="/icon/repeat.svg" alt=""> 0</li>
                             <li> <img class="l-react" src="/icon/upload.svg" alt=""></li>
                         </ul>
 
@@ -84,10 +81,15 @@
                                 <a href="/profile/{{$comment->user->profile['id']}}"> <img class="p-photo" src="/storage/{{$comment->user->profile->pphoto}}" alt=""></a>
                                 @endif
                                 <div class="details">
-                                   <div class="rep">
-                                    <h3>{{$comment->user->name}}</h3>
+                                   
+                                <div class="rep">
+                                    @if (count($comment->user->followers) >= 3)
+                                        <h3>{{$comment->user->name}}&check;</h3>
+                                    @else
+                                        <h3>{{$comment->user->name}}</h3>
+                                    @endif
                                     <p>{{'@'. $comment->user->username}}</p>
-                                   </div>
+                                </div>
                                     <p style="color:gray">replying to <span style="color:rebeccapurple; cursor:pointer"> {{'@'. $tweet->user->username}}</span></p>
                             
                                     <p>{{$comment->comment}}</p>
@@ -110,33 +112,35 @@
            {{-- Div containing the search --}}
            <div class="third-container">
                <div class="th-container">
-                   {{-- <div class="search-head">
-                       <img class="search" src="icon/search.svg" alt=""> 
-                       <input class="search" type="search" name="" id="" placeholder="Search">
-                    </div> --}}
                     
                     {{-- Div containing the others like suggestions --}}
                     <div class="others">
                         <div class="follow">
                             <div class="follow-id">
                                 @if ($tweet->user->id == auth()->user()->id)
-                                <a href="/profile"><img class="p-photo" src="{{$tweet->user->profile->pphoto ? asset('storage/' . $tweet->user->profile->pphoto) : asset('images/default.jpeg')}}" alt=""></a>
-                                    
-                                @else
-                                    
+                                <a href="/profile"><img class="p-photo" src="{{$tweet->user->profile->pphoto ? asset('storage/' . $tweet->user->profile->pphoto) : asset('images/default.jpeg')}}" alt=""></a>  
+                                @else  
                                 <a href="/profile/{{$tweet->user->profile['id']}}"><img class="p-photo" src="{{$tweet->user->profile->pphoto ? asset('storage/' . $tweet->user->profile->pphoto) : asset('images/default.jpeg')}}" alt=""></a>
                                 @endif
+                            @if ($tweet->user->followers->count() >= 3)
+                        <div class="f-text">
+                         <p style="font-size: large; font-weight: bold;">{{$tweet->user->name}}&check;</p>
+                         <p style="font-size: small;">{{'@' . $tweet->user->username}}</p>
+                         </div>
+                        @else
                         <div class="f-text">
                         <p style="font-size: large; font-weight: bold;">{{$tweet->user->name}}</p>
                         <p style="font-size: small;">{{'@' . $tweet->user->username}}</p>
                     </div>
+                    @endif
+                       
                 </div>
                 <form action=" /users/{{$tweet->user->username}}/follow" method="POST">
                     @csrf
                     @if (auth()->user()->following->contains($tweet->user->id))
-                    <button onclick="" class="follow-btn">Following</button>
+                    <button style="cursor: pointer" onclick="" class="follow-btn">Following</button>
                     @else
-                    <button onclick="" class="follow-btn">Follow</button>
+                    <button style="cursor: pointer" onclick="" class="follow-btn">Follow</button>
                     @endif
                 </form>
             </div>

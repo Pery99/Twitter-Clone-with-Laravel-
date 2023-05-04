@@ -34,21 +34,6 @@
     padding: 8px 0;
     list-style: none;
 }
-/* .li-active{
-    width: 100%;
-    padding: 10px;
-    transition: 0.6s;
-    background-color: rgb(224, 224, 224);
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0px 15px 5px whitesmoke;
-}
-.li-active a{
-    text-decoration: none;
-    color: black;
-    font-size: larger;
-    font-weight: bold;
-} */
 .nav .li a {
     text-decoration: none;
     color: black;
@@ -244,8 +229,9 @@
 }
 .img-upload {
     width: 300px;
-    height: 300px;
-    border-radius: 10px;
+    object-fit: contain;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .l-react {
     cursor: pointer;

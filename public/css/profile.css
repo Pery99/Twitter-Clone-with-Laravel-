@@ -105,7 +105,8 @@
     position: relative;
     justify-content: start;
     width: 100%;
-    transition: 0.5ss;
+    transition: 0.5s;
+    border-bottom: 1px solid whitesmoke;
 }
 .view-tweet:hover {
     background-color: rgb(231, 227, 227);
@@ -148,9 +149,10 @@
     padding: 10px 0;
 }
 .img-upload {
-    width: 350px;
-    height: 300px;
-    border-radius: 15px;
+    width: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .l-react {
     cursor: pointer;
