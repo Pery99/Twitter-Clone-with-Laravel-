@@ -29,7 +29,11 @@
             </div>
             <div class="s-head-txt">
                 <h3>{{$user->username}}</h3>
+                @if ($user->tweets->count() < 1)
+                <p style="font-size: small">0 Tweet</p>   
+                @else   
                 <p style="font-size: small">{{$user->tweets->count()}} Tweets</p>
+                @endif
                 </div>
            </div>
 
@@ -161,8 +165,6 @@
            </div>
            </div>
         </div>
-
-        
 
         {{-- div of the last container --}}
         <div class="third-container">

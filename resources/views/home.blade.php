@@ -167,8 +167,7 @@
                 @endunless
             </div>
             <div class="post-end">
-                <h2>That's all dude!</h2>
-                <br>
+                <br><br><br>
                 <a href="/" class="refresh">Refresh</a>
             </div>
         </div>

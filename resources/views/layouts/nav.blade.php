@@ -29,7 +29,7 @@
                 <form class="l-out"  id="logout" action="/logout"><button class="log-out">Log out {{'@' . auth()->user()->username}}</button></form>
                 <div class="profile">
                     <div class="profile-cnt">
-                        <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}"alt="">
+                       <a href="/profile"><img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}"alt=""></a>
                         <div class="text">
                              @if (auth()->user()->followers->count() >= 3)
                                  <p class="username">{{ auth()->user()->name}}&check;</p><p>{{'@'. auth()->user()->username}}</p>

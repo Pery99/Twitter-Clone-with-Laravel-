@@ -35,7 +35,11 @@
             </div>
             <div class="s-head-txt">
                 <h3>{{$user->user->username}}</h3>
+                @if (count($user->user->tweets) < 1)    
+                    <p style="font-size: small">0 Tweet</p>
+                @else
                 <p style="font-size: small">{{count($user->user->tweets)}} Tweets</p>
+                    @endif
                 </div>
            </div>
 
