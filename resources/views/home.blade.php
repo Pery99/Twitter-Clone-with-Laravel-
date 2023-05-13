@@ -21,11 +21,11 @@
         {{-- div of the second side containing the tweet section e.t.c --}}
         <div class="second_side">
             <div class="s-container">
-                @if (session()->has('sucess'))
+                @if (session()->has('message'))
 
                 <div class="message-div" x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show">
                 <p class="message">
-                    {{session('sucess')}}
+                    {{session('message')}}
                 </p>
                 </div>
                 @endif

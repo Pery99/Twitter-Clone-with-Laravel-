@@ -95,8 +95,6 @@
                                     <p>{{$comment->comment}}</p>
                                 </div>
                             </div>
-                       
-                            
                         @endforeach
                         </div>
            

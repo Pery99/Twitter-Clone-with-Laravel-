@@ -57,14 +57,15 @@ class TweetsController extends Controller
                 'image' => $imagepath,
             ]);
 
-            return back()->with('sucess', 'Tweet created sucessfully!');
+            return back()->with('message', 'Tweet created sucessfully!');
         
     }
-}
 
-// $post = Tweet::create([
-        //     'username' => auth()->user()->username,
-        //     'tweets' => $request->tweets,
-        // ]);
-        
-        // return redirect('/')->with('Tweet', 'Tweet created sucessfully!');
+    public function destroy($id) {
+        $tweet = Tweet::find($id);
+        $tweet->delete();
+
+        return back()->with('message', 'Tweet Deleted Sucessfully');
+    }
+    
+}

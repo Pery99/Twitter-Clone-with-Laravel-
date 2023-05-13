@@ -14,11 +14,11 @@
         @section('nav-link')
         {{-- div of the second side --}}
         <div class="second_side">
-            @if (session()->has('done'))
+            @if (session()->has('message'))
 
             <div class="message-div" x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show">
             <p class="message">
-                {{session('done')}}
+                {{session('message')}}
             </p>
             </div>
             @endif
@@ -90,10 +90,8 @@
                             @endif
                             <img onclick="menue('id{{$id}}')" class="menue" src="icon/three-dots.svg" alt="">
                         </div>
-                        <form class="men-ue" id="" action="{{""}}">
-                            <button class="menue-li">Pin Post</button>
+                        <form class="men-ue" id="" action="/delete/{{$tweet->id}}"> 
                             <button class="menue-li">Delete Post</button>
-                            <button class="menue-li">Edit Post</button>
                         </form>
                     </div>
                    
@@ -137,17 +135,15 @@
                         <img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}" alt="">
                         <div class="id">
                              @if ($user->followers->count() >= 3)
-                                 <h3>{{$user->name}}&check;</h3><p style="font-size:small;">{{'@'. $user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                 <h3>{{$user->name}}&check;</h3><p style="font-size:small;">{{'@'. $user->username}}</p><h5>{{$comment->created_at}}</h5>
                                 @else
-                                   <h3>{{$user->name}}</h3><p style="font-size:small;">{{'@'. $user->username}}</p><h5>{{$tweet->created_at}}</h5>
+                                   <h3>{{$user->name}}</h3><p style="font-size:small;">{{'@'. $user->username}}</p><h5>{{$comment->created_at}}</h5>
                             @endif
                             {{-- <h3>{{$user->name}}</h3><p style="font-size: large;">{{'@'. $user->username}}</p><h5>{{$comment->created_at}}</h5> --}}
                             <img onclick="menue('id{{$id}}')" class="menue" src="icon/three-dots.svg" alt="">
                         </div>
-                        <form class="men-ue" id="" action="{{""}}">
-                            <button class="menue-li">Pin Post</button>
+                        <form class="men-ue" id="" action="/comment/delete/{{$comment->id}}">
                             <button class="menue-li">Delete Post</button>
-                            <button class="menue-li">Edit Post</button>
                         </form>
                     </div>
                 

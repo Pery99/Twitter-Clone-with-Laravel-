@@ -18,8 +18,13 @@ class CommentsController extends Controller
         
         return redirect()->back()->with('message', 'Reply sent');
         
-
     }
 
-    
+    public function destroy($id) {
+        $comment = Comment::find($id);
+        $comment->delete();
+
+        return back()->with('message', 'Comment Deleted');
+    }
+
 }

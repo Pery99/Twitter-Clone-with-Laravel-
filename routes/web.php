@@ -59,6 +59,7 @@ Route::get('/edit', function() {
 })->middleware(['auth'])->name('edit');
 
 Route::post('/comment', [CommentsController::class, 'store'])->middleware(['auth']);
+Route::get('/comment/delete/{id}', [CommentsController::class, 'destroy'])->middleware(['auth']);
 
 Route::get('/list', [ProfileController::class, 'allUsers'])->middleware(['auth']);
 
@@ -79,5 +80,5 @@ Route::get('/login', function(){
 
  Route::get('/logout', [LoginController::class, 'logout']);
 
-
- Route::get('/tweet/{id}', [TweetsController::class, 'show'])->middleware(['auth']);
+Route::get('/delete/{id}', [TweetsController::class, 'destroy'])->middleware(['auth']);
+Route::get('/tweet/{id}', [TweetsController::class, 'show'])->middleware(['auth']);

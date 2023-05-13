@@ -30,7 +30,6 @@ class ProfileController extends Controller
     {
         $alluser = User::paginate(5);
         return view ('suggestion' , [
-            
             'users' => $alluser,
         ]);
     }
@@ -61,7 +60,7 @@ class ProfileController extends Controller
             $data,
             $imageArray ?? [],
         ));
-        return redirect('/profile')->with('done', 'Profile Updated');
+        return redirect('/profile')->with('message', 'Profile Updated');
     }
         
 }
