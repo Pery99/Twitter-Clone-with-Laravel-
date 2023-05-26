@@ -14,15 +14,14 @@ class BookmarkController extends Controller
             'tweet_id' => $request->tweet_id,  
         ]);
         
-        return redirect()->back()->with('message', 'Done, Added to bookmark');
-        
+        return redirect()->back()->with('message', 'Done, Added to bookmark');   
     }
 
     public function show()
     {
-       
         $save = auth()->user()->bookmarks()->pluck('tweet_id');
         $bookmark = Tweet::whereIn('id', $save)->latest()->filter(request(['search']))->get();
+
         return view('bookmark', [
             'tweets' => $bookmark,
         ]);

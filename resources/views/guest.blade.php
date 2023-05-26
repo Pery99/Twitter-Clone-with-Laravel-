@@ -11,13 +11,7 @@
    
     {{-- Div of the whole body --}}
     <div class="main_container">
-
         {{-- div of the first side --}}
-        
-        <style>
-           
-            
-            </style>
             <div class="first_side">
                 <div class="cnt">
                     {{-- Nav links of the first side --}}
@@ -38,9 +32,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            
+            </div>            
         {{-- div of the second side containing the tweet section e.t.c --}}
         <div class="second_side">
             <div class="s-container">
@@ -57,18 +49,12 @@
                     {{-- Div of the section to post tweet --}}
                     <div class="post-tweet-container">
                         <div class="post-tweet">
-                            <div class="textarea-forpost">
-                               
-                    </div>
-                       
+                            <div class="textarea-forpost">      
+                    </div>  
                     </div>
                 </form>
                 </div>
                 {{-- Div of the section where posts are viewed --}}
-
-                
-               
-              
                 <div class="view-tweet">
                     <div class="info">
                         <div class="prof">
@@ -85,10 +71,7 @@
                         </div>
                 </div>
             </div>
-           
-
-            <ul class="reactions">
-               
+            <ul class="reactions">  
             </ul>
             </div>
         </div>
@@ -107,13 +90,6 @@
                 <h3>Trends for you</h3>
                 <div class="trend">
                    <a href="/login" class="tweet">Login</a>
-                
-                
-
-
-               
-
-            
         </div>
     </div>
             {{-- Div containing the others like suggestions --}}

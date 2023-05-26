@@ -25,9 +25,12 @@ class RegisterController extends Controller
         ]);
         
         auth()->login($user);
-        return redirect("/list");
-
-       
+        $users = User::get();
+        if($user->count() === 1) {
+            return redirect("/");
+        } else {
+            return redirect("/list");
+        }
     }
   
 }

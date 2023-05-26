@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CommentsController extends Controller
 {
     public function store(Request $request) {
-   
+
        auth()->user()->comments()->create([
             'tweet_id' => $request->tweet_id,
             'comment' => $request->comment,
@@ -17,7 +17,6 @@ class CommentsController extends Controller
         ]);
         
         return redirect()->back()->with('message', 'Reply sent');
-        
     }
 
     public function destroy($id) {

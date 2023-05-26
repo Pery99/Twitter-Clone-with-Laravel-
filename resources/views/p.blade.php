@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{$user->user->username}}</title>
+        <title>{{$user->user->username}}'s profile</title>
         <link rel="stylesheet" href="/css/userprofile.css">
         <style>
             .active {
@@ -118,9 +118,9 @@
     @endif
         <ul class="reactions">
             <li> <img class="l-react" src="/icon/chat.svg" alt="">0</li>
-            <li> <img class="l-react" src="/icon/repeat.svg" alt="">0</li>
+            <li> <img class="l-react" src="/icon/bookmark.svg" alt="">0</li>
             <li> <img class="l-react" src="/icon/heart.svg" alt="">0</li>
-            <li> <img class="l-react" src="/icon/bar-chart.svg" alt="">0</li>
+            <li> <img class="l-react" src="/icon/repeat.svg" alt="">0</li>
             <li> <img class="l-react" src="/icon/upload.svg" alt=""></li>
         </ul>
         @endforeach
@@ -251,7 +251,7 @@
             var post = document.getElementById(id);
             var first = post.querySelector('.men-ue');
             first.classList.toggle("men-ue1");
-    }
+        }
 
     function edit() {
         document.querySelector('.edit-profile').style.display = 'block';

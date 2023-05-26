@@ -20,7 +20,7 @@
                 <a href="/bookmark" class="{{Route::currentRouteName() == 'bookmark' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/bookmark.svg"><li >Bookmark</li></a>
                 <a href="/list" class="{{Route::currentRouteName() == 'list' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/list-ul.svg"><li>List</li></a>
                 <a href="/profile" class="{{Route::currentRouteName() == 'profile' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/person.svg"><li>Profile</li></a>
-                <a href="/edit" class="{{Route::currentRouteName() == 'edit' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/three-dots.svg"><li>More</li></a>
+                <a href="/edit" class="{{Route::currentRouteName() == 'edit' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/three-dots.svg"><li>Edit</li></a>
                 {{-- <a href="/" class="tweet">+</a> later--}}
                 <a href="/" class="tweet-pc">Tweet</a>
             </ul>
@@ -32,7 +32,8 @@
                        <a href="/profile"><img class="p-photo" src="{{auth()->user()->profile->pphoto ? asset('storage/' . auth()->user()->profile->pphoto) : asset('images/default.jpeg')}}"alt=""></a>
                         <div class="text">
                              @if (auth()->user()->followers->count() >= 3)
-                                 <p class="username">{{ auth()->user()->name}}&check;</p><p>{{'@'. auth()->user()->username}}</p>
+                                 <p class="username">{{ auth()->user()->name}}&check;</p>
+                                 <p>{{'@'. auth()->user()->username}}</p>
                                 @else
                                  <p class="username">{{ auth()->user()->name}}</p><p>{{'@'. auth()->user()->username}}</p>
                             @endif

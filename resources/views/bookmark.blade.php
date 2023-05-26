@@ -16,11 +16,9 @@
        <div class="second_side">
             <div class="s-container">
                 <h2>Bookmarks</h2>
-
-                @unless (count($tweets)== 0)
-                    
+                @unless (count($tweets)== 0)   
                 @foreach ($tweets as $tweet)
-                    <a href="/tweet/{{$tweet['id']}}"  id="content" style="text-decoration: none; color:black;">    
+                <a href="/tweet/{{$tweet['id']}}"  id="content" style="text-decoration: none; color:black;">    
                 <div class="view-tweet">
                     <div class="info">
                         <div class="prof">
@@ -34,7 +32,6 @@
                             <br>
                             <p style="font-weight: bold;">{{$tweet->tweets}}</p>
                         </div>
-                    
                 </div>
             </div>
             @if ($tweet->image == '')
@@ -46,13 +43,13 @@
             @endif
             <ul class="reactions">
                 <li> <img class="l-react" src="icon/chat.svg" alt="">{{count($tweet->comments)}}</li>
-                <li> <img class="l-react" src="icon/repeat.svg" alt="">0 </li>
+                <li> <img class="l-react" src="icon/bookmark.svg" alt=""> 0</li>
                 <li> <img class="l-react" src="icon/heart.svg" alt=""> 0</li>
-                <li> <img class="l-react" src="icon/bar-chart.svg" alt=""> 0</li>
+                <li> <img class="l-react" src="icon/repeat.svg" alt="">0 </li>
                 <li> <img class="l-react" src="icon/upload.svg" alt=""></li>
             </ul>
         </a>
-                @endforeach
+            @endforeach
                  @else
                 <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">Nothing found</h1>
                 @endunless

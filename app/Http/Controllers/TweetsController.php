@@ -25,9 +25,6 @@ class TweetsController extends Controller
 
     }
     
-    
-    // 'tweets' => auth()->user()->tweets()->tweets->latest()->filter(request(['search']))
-    // ->get()
 
     public function show($id){
        
