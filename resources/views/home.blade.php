@@ -107,8 +107,6 @@
                 @unless (count($followedUserTweets) == 0)
                 @foreach ($followedUserTweets as $tweet) 
                 
-               
-        
                 <a href="/tweet/{{$tweet['id']}}"  id="content" style="text-decoration: none; color:black;">    
                     <div class="view-tweet">
                         <div class="info">
