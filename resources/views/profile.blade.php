@@ -239,24 +239,27 @@
        </div>
     </body>
     @endsection
-<div class="edit-profile">
-    <p style="cursor: pointer; font-size: 30px; width: 3%; margin-left: 90%; margin-bottom:8%" onclick="exit()">&times</p>
-    <form action="/profile" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PATCH')
-        <label class="profile-photo-label" for="pphoto">Change Profile Photo</label>
-        <input style="display: none" class="edit" type="file" name="pphoto" id="pphoto" >
-        @error('pphoto')
-            <p style="font-size: small">{{$message}}</p>
-        @enderror
-        <br><br>
-        <input class="edit" type="text" name="bio" id="" placeholder="Bio" value="{{$user->profile->bio}}">
-        @error('bio')
-            <p style="font-size: small">{{$message}}</p>
-        @enderror
-        <br><br>
-        <button class="edit-submit" type="submit">Save Changes</button>
-    </form>
+<div class="main-edit">
+    <div class="edit-profile">
+        <p style="cursor: pointer; font-size: 30px; width: 3%; margin-left: 90%; margin-bottom:8%" onclick="exit()">&times</p>
+        <form action="/profile" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PATCH')
+            <p style="display: inline-block">Update Profle Photo</p>
+            <label class="profile-photo-label" for="pphoto"><img src="/icon/upload.svg" alt=""></label>
+            <input style="display: none" class="edit" type="file" name="pphoto" id="pphoto" >
+            @error('pphoto')
+                <p style="font-size: small">{{$message}}</p>
+            @enderror
+            <br><br>
+            <input class="edit" type="text" name="bio" id="" placeholder="Bio" value="{{$user->profile->bio}}">
+            @error('bio')
+                <p style="font-size: small">{{$message}}</p>
+            @enderror
+            <br><br>
+            <button class="edit-submit" type="submit">Save Changes</button>
+        </form>
+    </div>
 </div>
 <div class="photo-display">
     <p style="cursor: pointer; font-size: 30px; width: 3%; margin-left: 90%; margin-bottom:6%" onclick="exitPhoto()">&times</p>

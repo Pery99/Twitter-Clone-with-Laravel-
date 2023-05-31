@@ -22,14 +22,20 @@ function menue(id) {
 }
 
 function edit() {
-    document.querySelector(".edit-profile").style.display = "block";
-    document.querySelector(".second_side").style.filter = "blur(5px)";
+    document.querySelector(".main-edit").style.display = "flex";
+    document.querySelector('body').style.overflow = 'hidden';
 }
 
 function exit() {
-    document.querySelector(".edit-profile").style.display = "none";
-    document.querySelector(".second_side").style.filter = "none";
+    document.querySelector(".main-edit").style.display = "none";
+    document.querySelector('body').style.overflow = 'auto';
 }
+window.addEventListener('click', (e) => {
+    if(e.target === document.querySelector(".main-edit")) {
+        document.querySelector(".main-edit").style.display = "none";
+        document.querySelector('body').style.overflow = 'auto';
+    }
+});
 function showPhoto() {
     document.querySelector(".photo-display").style.display = "block";
     document.querySelector(".second_side").style.filter = "blur(5px)";

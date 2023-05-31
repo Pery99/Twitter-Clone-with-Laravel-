@@ -315,30 +315,44 @@
     height: 100px;
     border-bottom-left-radius: 20%;
 }
-.edit-profile {
-    background-color: rgb(236, 224, 224);
+.main-edit{
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: 40%;
-    left: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.edit-profile {
+    width: 30%;
+    background-color: whitesmoke;
     padding: 15px 25px 25px 25px;
-    z-index: 1;
     border-radius: 12px;
     box-shadow: 0px 5px 10px rgb(102, 99, 99);
-    display: none;
 }
+
 .edit {
     padding: 10px 15px;
     border-radius: 12px;
     border: 1px solid black;
     outline: none;
+    width: 100%;
 }
 .edit-submit {
     padding: 10px 15px;
     border-radius: 12px;
     width: 100%;
-    background-color: black;
+    background-color: #1da1f2;
     color: white;
     outline: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 .photo-display {
     position: absolute;
@@ -379,7 +393,7 @@
 .profile-photo-label {
     background-color: white;
     width: 100%;
-    padding: 0.7em;
+    padding: 0.3em 1.5em;
     border-radius: 15px;
     cursor: pointer;
     border: 1px solid black;
