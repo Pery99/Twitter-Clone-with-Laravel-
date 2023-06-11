@@ -54,7 +54,7 @@
                 <p></p>
                 @else
                
-                <form action=" /users/{{$user->user->username}}/follow" method="POST">
+                <form action="/users/{{$user->user->username}}/follow" method="POST">
                     @csrf
                     @if (auth()->user()->following->contains($user->id))
                     <button onclick="" class="button">Following</button>

@@ -1,0 +1,27 @@
+* {
+    font-family: "roboto";
+    margin: 0;
+    padding: 0;
+}
+.second-side{
+    border-left: 1px solid whitesmoke;
+    padding: 1em;
+}
+.act-ul {
+    display: block;
+    list-style: none;
+}
+.list {
+    background-color: whitesmoke;
+    margin: 15px 0;
+    padding: 10px;
+    border-left: 3px solid rgb(78, 78, 255);
+    width: max-content;
+}
+.data {
+   margin-bottom: 10px;
+}
+.timestamp{
+    font-size: 15px;
+    color: gray;
+}

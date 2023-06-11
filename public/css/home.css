@@ -149,6 +149,7 @@
     cursor: pointer;
     width: 25px;
     height: 15px;
+    vertical-align: middle;
 }
 
 .third-container {
@@ -283,4 +284,8 @@ footer {
     font-size: 15px;
     border: none;
     font-weight: bold;
+}
+.count{
+    vertical-align: middle;
+    display: inline-block;
 }

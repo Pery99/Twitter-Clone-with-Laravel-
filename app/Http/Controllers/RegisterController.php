@@ -24,6 +24,7 @@ class RegisterController extends Controller
             'username'=>$request->username,
         ]);
         
+        
         auth()->login($user);
         $users = User::get();
         if($user->count() === 1) {

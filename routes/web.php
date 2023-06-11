@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\ActivitiesController;
 use App\Models\User;
 use App\Models\Tweets;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EditController;
+use App\Http\Controllers\LikesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\TweetsController;
@@ -30,6 +32,9 @@ Route::post('/', [TweetsController::class, 'store']);
 //Followers
 Route::post('/users/{user:username}/follow', [FollowController::class, 'store'])->middleware(['auth']);
 
+//Likes
+Route::post('/like', [LikesController::class, 'store'])->middleware(['auth']);
+
 // Bookmark
 Route::get('/bookmark', [BookmarkController::class, 'show'])->middleware(['auth'])->name('bookmark');
 Route::post('/bookmark', [BookmarkController::class, 'store'])->middleware('auth');
@@ -40,9 +45,7 @@ Route::get('/explore', function() {
     return view('explore');
 })->middleware(['auth'])->name('explore');
 
-Route::get('/notification', function() {
-    return view('notification');
-})->middleware(['auth'])->name('notification');
+Route::get('/activities', [ActivitiesController::class, 'show'])->middleware(['auth'])->name('notification');
 
 Route::get('/message', function() {
     return view('message');

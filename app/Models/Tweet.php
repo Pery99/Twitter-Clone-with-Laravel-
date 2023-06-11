@@ -15,8 +15,9 @@ class Tweet extends Model
         'image',
 
     ];
-    public function scopeFilter($query, array $filters){
-        if($filters['search'] ?? false) {
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
             $query->where('tweets', 'like', '%' . request('search') . '%');
         }
     }
@@ -27,14 +28,18 @@ class Tweet extends Model
     }
 
     public function comments()
-        {
-            return $this->hasMany(Comment::class);
-        }
+    {
+        return $this->hasMany(Comment::class);
+    }
 
-        public function bookmarks()
-        {
-            return $this->hasMany(Bookmark::class);
-        }
-    
-    
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
 }

@@ -60,6 +60,14 @@ class ProfileController extends Controller
             $data,
             $imageArray ?? [],
         ));
+
+        auth()->user()->notifications()->create([
+            'type' => 'like',
+            'notifiable_type' => 'alert',
+            'notifiable_id' => 1,
+            'data' => 'You updated your Profile',
+        ]);
+
         return redirect('/profile')->with('message', 'Profile Updated');
     }
         

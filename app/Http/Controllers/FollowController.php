@@ -17,11 +17,26 @@ class FollowController extends Controller
         $followeduser = auth()->user()->following->contains($user->id);
         
         if($followeduser) {
-            $user->followers()->detach($follower->id); // attach the follower to the user's followers
+            $user->followers()->detach($follower->id); // dettach the follower to the user's followers
+            auth()->user()->notifications()->create([
+                'type' => 'follow',
+                'notifiable_type' => 'alert',
+                'notifiable_id' => 1,
+                'data' =>' You Unfollowed  '. $user->username,
+    
+            ]);
             return back()->with('message', $user->username . ' Unfollowed');
         }
 
-        $user->followers()->attach($follower->id); // attach the follower to the user's followers
+        $user->followers()->attach($follower->id);
+        
+        auth()->user()->notifications()->create([
+            'type' => 'follow',
+            'notifiable_type' => 'alert',
+            'notifiable_id' => 1,
+            'data' =>' You Followed  '. $user->username,
+
+        ]);// attach the follower to the user's followers
 
         return back()->with('message', 'You are now following '.$user->username);
     }

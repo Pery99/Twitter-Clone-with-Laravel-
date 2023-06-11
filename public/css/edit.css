@@ -10,9 +10,9 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 3em 12em;
-    box-shadow: 0 0 2px;
-    border-radius: 2em;
+    padding: 2em 10em;
+    box-shadow: 0 0 1px;
+    border-radius: 1em;
 }
 .content h1{
     position: absolute;
@@ -64,7 +64,7 @@ label::after{
 }
 .del{
     position: absolute;
-    bottom: 15px;
+    bottom: 5px;
     left: 50%;
     transform: translate(-50%, -50%);
 }

@@ -237,6 +237,7 @@
     cursor: pointer;
     width: 25px;
     height: 15px;
+    vertical-align: middle;
 }
 
 .third-container {
@@ -373,6 +374,7 @@
     border: none;
     border-radius: 15px;
     outline: none;
+    cursor: pointer;
 }
 .comments {
     margin-top: 0.5em;
@@ -394,4 +396,8 @@
     display: flex;
     flex-direction: column;
     gap: 1px;
+}
+.count {
+    vertical-align: middle;
+    display: inline-block;
 }

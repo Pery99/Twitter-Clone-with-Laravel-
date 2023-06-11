@@ -60,7 +60,7 @@
                      <label for="">Enter Password to continue</label>
                      <input class="input" type="password" name="confirmpassword" id="" placeholder="Enter Password">
                      @error('confirmpassword')
-                        <p>{{$message}}</p>
+                        <p style="color: red; font-weight: bold; margin:10px 0;">{{$message}}</p>
                     @enderror
                    </div>
                     <button class="save">Save Changes</button>

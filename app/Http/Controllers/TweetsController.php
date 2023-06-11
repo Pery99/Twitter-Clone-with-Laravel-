@@ -20,7 +20,8 @@ class TweetsController extends Controller
         
         return view('home', [
            'forYou' => $forYou,
-            'followedUserTweets' => $tweets
+            'followedUserTweets' => $tweets,
+            'user_id' =>auth()->user()->id, 
         ]);
 
     }
@@ -52,6 +53,16 @@ class TweetsController extends Controller
         auth()->user()->tweets()->create([
                 'tweets' =>$data['tweets'],
                 'image' => $imagepath,
+                
+            ]);
+
+            
+
+            auth()->user()->notifications()->create([
+                'type' => 'like',
+                'notifiable_type' => 'alert',
+                'notifiable_id' => 1,
+                'data' =>' You made a Tweet "'. $data['tweets'] .'"' ,
             ]);
 
             return back()->with('message', 'Tweet created sucessfully!');
@@ -61,6 +72,13 @@ class TweetsController extends Controller
     public function destroy($id) {
         $tweet = Tweet::find($id);
         $tweet->delete();
+
+        auth()->user()->notifications()->create([
+            'type' => 'like',
+            'notifiable_type' => 'alert',
+            'notifiable_id' => 1,
+            'data' =>' You Deleted your Tweet "'. $tweet->tweets .'"' ,
+        ]);
 
         return back()->with('message', 'Tweet Deleted Sucessfully');
     }

@@ -15,10 +15,10 @@
                 <a href="/"><div class="logo"><img class="tw-icon" src="/icon/twitter.svg" alt=""></div></a>
                 <a href="/" class="{{Route::currentRouteName() == 'home' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/house.svg"><li>Home</li></a>
                 <a href="/explore" class="{{Route::currentRouteName() == 'explore' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/hash.svg"><li>Explore</li></a>
-                <a href="/notification" class="{{Route::currentRouteName() == 'notification' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/bell.svg"><li>Notifications</li></a>
+                <a href="/activities" class="{{Route::currentRouteName() == 'notification' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/bell.svg"><li>Activities</li></a>
                 <a href="/message" class="{{Route::currentRouteName() == 'message' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/envelope.svg"><li>Message</li></a>
                 <a href="/bookmark" class="{{Route::currentRouteName() == 'bookmark' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/bookmark.svg"><li >Bookmark</li></a>
-                <a href="/list" class="{{Route::currentRouteName() == 'list' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/list-ul.svg"><li>List</li></a>
+                <a href="/list" class="{{Route::currentRouteName() == 'list' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/list-ul.svg"><li>Connect</li></a>
                 <a href="/profile" class="{{Route::currentRouteName() == 'profile' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/person.svg"><li>Profile</li></a>
                 <a href="/edit" class="{{Route::currentRouteName() == 'edit' ? 'active' : ''}} li"><img class="nav-icon" src="/icon/three-dots.svg"><li>Edit</li></a>
                 {{-- <a href="/" class="tweet">+</a> later--}}
