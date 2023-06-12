@@ -104,49 +104,48 @@
                                             </div>
                                         @endif
                                         <ul class="reactions">
-                                                    <img class="l-react" src="icon/chat.svg" alt="">
-                                                    <p class="count">{{ count($tweet->comments) }}</p>
-                                            </a>
-                                            <form action="/bookmark" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="tweet_id" id="" value="{{ $tweet->id }}">
-                                                <button style="background:none; border:none" type="submit">
-                                                    <img class="l-react bookmark-js" src="/icon/bookmark.svg" alt="">
-                                                    <p class="count">{{ count($tweet->bookmarks) }}</p>
-                                                </button>
-                                            </form>
-                                            @if (DB::table('likes')->where('tweet_id', $tweet->id)->where('user_id', $user_id)->first())
-                                            <form action="/like" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="tweet_id" id=""
-                                                    value="{{ $tweet->id }}">
-                                                <button style="background:none; border:none" type="submit">
-                                                    <img style="width: 30px; cursor:pointer; vertical-align: middle"
+                                            <img class="l-react" src="icon/chat.svg" alt="">
+                                            <p class="count">{{ count($tweet->comments) }}</p>
+                                    </a>
+                                    <form action="/bookmark" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="tweet_id" id="" value="{{ $tweet->id }}">
+                                        <button style="background:none; border:none" type="submit">
+                                            <img class="l-react bookmark-js" src="/icon/bookmark.svg" alt="">
+                                            <p class="count">{{ count($tweet->bookmarks) }}</p>
+                                        </button>
+                                    </form>
+                                    @if (DB::table('likes')->where('tweet_id', $tweet->id)->where('user_id', $user_id)->first())
+                                        <form action="/like" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="tweet_id" id=""
+                                                value="{{ $tweet->id }}">
+                                            <button style="background:none; border:none" type="submit">
+                                                <img style="width: 30px; cursor:pointer; vertical-align: middle"
                                                     src="/icon/2855967.png" alt="">
-                                                    <p class="count">{{ $tweet->likes->count() }}</p>
-                                                </button>
-                                            </form>
-                                            @else
-                                                <form action="/like" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="tweet_id" id=""
-                                                        value="{{ $tweet->id }}">
-                                                    <button style="background:none; border:none" type="submit">
-                                                        <img class="l-react" src="/icon/heart.svg" alt="">
-                                                        <p class="count">{{ $tweet->likes->count() }}</p>
-                                                    </button>
-                                                </form>
-                                            @endif
-                                            <li> <img class="l-react" src="/icon/repeat.svg" alt="">
-                                                <p class="count">0</p>
-                                            </li>
-                                            <li> <img class="l-react" src="icon/upload.svg" alt=""></li>
+                                                <p class="count">{{ $tweet->likes->count() }}</p>
+                                            </button>
+                                        </form>
+                                    @else
+                                        <form action="/like" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="tweet_id" id=""
+                                                value="{{ $tweet->id }}">
+                                            <button style="background:none; border:none" type="submit">
+                                                <img class="l-react" src="/icon/heart.svg" alt="">
+                                                <p class="count">{{ $tweet->likes->count() }}</p>
+                                            </button>
+                                        </form>
+                                    @endif
+                                    <li> <img class="l-react" src="/icon/repeat.svg" alt="">
+                                        <p class="count">0</p>
+                                    </li>
+                                    <li> <img class="l-react" src="icon/upload.svg" alt=""></li>
                                     </ul>
                                 @endforeach
                             @else
                                 <h1 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No
                                     tweets Found</h1>
-                               
                             @endunless
                         </div>
 
@@ -204,16 +203,16 @@
                                         </button>
                                     </form>
                                     @if (DB::table('likes')->where('tweet_id', $tweet->id)->where('user_id', $user_id)->first())
-                                    <form action="/like" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="tweet_id" id=""
-                                            value="{{ $tweet->id }}">
-                                        <button style="background:none; border:none" type="submit">
-                                            <img style="width: 30px; cursor:pointer; vertical-align: middle"
-                                            src="/icon/2855967.png" alt="">
-                                            <p class="count">{{ $tweet->likes->count() }}</p>
-                                        </button>
-                                    </form>
+                                        <form action="/like" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="tweet_id" id=""
+                                                value="{{ $tweet->id }}">
+                                            <button style="background:none; border:none" type="submit">
+                                                <img style="width: 30px; cursor:pointer; vertical-align: middle"
+                                                    src="/icon/2855967.png" alt="">
+                                                <p class="count">{{ $tweet->likes->count() }}</p>
+                                            </button>
+                                        </form>
                                     @else
                                         <form action="/like" method="POST">
                                             @csrf
@@ -229,7 +228,7 @@
                                         <p class="count">0</p>
                                     </li>
                                     <li> <img class="l-react" src="icon/upload.svg" alt=""></li>
-                            </ul>
+                                    </ul>
                                 @endforeach
                             @else
                                 <h2 style="display: flex; justify-content:center; align-items:center; margin-top:20px;">No user

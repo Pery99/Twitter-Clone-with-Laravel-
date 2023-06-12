@@ -1,4 +1,4 @@
-body{
+body {
     border-left: 1px solid whitesmoke;
 }
 .edit-form {
@@ -14,18 +14,18 @@ body{
     box-shadow: 0 0 1px;
     border-radius: 1em;
 }
-.content h1{
+.content h1 {
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-label{
+label {
     font-size: 18px;
     font-weight: bold;
 }
-label::after{
-    content: ':';
+label::after {
+    content: ":";
 }
 .input {
     padding: 9px 12px;
@@ -60,15 +60,28 @@ label::after{
     color: white;
     padding: 15px;
     z-index: 999;
+    border-radius: 30px;
+    width: 30%;
     text-align: center;
+    animation: pop 0.5s;
+    font-weight: bold;
 }
-.del{
+@keyframes pop {
+    from {
+        top: -999px;
+    }
+
+    to {
+        top: 10px;
+    }
+}
+.del {
     position: absolute;
     bottom: 5px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.delete{
+.delete {
     background-color: rgb(255, 53, 53);
     color: white;
     padding: 8px 20px;
@@ -78,10 +91,10 @@ label::after{
     font-weight: bold;
     cursor: pointer;
 }
-.delete:hover{
+.delete:hover {
     opacity: 0.7;
 }
-.pop-container{
+.pop-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -96,23 +109,24 @@ label::after{
     flex-direction: column;
     align-items: center;
 }
-.pop{
-   background-color: whitesmoke;
-   padding: 20px 30px;
-   display: flex;
-   flex-direction: column;
-   gap: 25px;
-   border-radius: 12px;
-   box-shadow: 0px 0px 5px;
+.pop {
+    background-color: whitesmoke;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 5px;
 }
-.opt{
+.opt {
     text-align: center;
     display: flex;
     justify-content: center;
     gap: 10px;
     align-items: center;
 }
-.yes, .no{
+.yes,
+.no {
     cursor: pointer;
     padding: 6px 20px;
     border-radius: 15px;
@@ -120,15 +134,15 @@ label::after{
     font-size: 15px;
     width: 100%;
 }
-.yes-form{
+.yes-form {
     width: 100%;
 }
-.yes{
+.yes {
     background-color: white;
     border: 1px solid red;
     color: red;
 }
-.no{
+.no {
     background-color: #1da1f2;
     border: none;
     color: white;

@@ -38,7 +38,7 @@ Route::post('/like', [LikesController::class, 'store'])->middleware(['auth']);
 // Bookmark
 Route::get('/bookmark', [BookmarkController::class, 'show'])->middleware(['auth'])->name('bookmark');
 Route::post('/bookmark', [BookmarkController::class, 'store'])->middleware('auth');
-Route::delete('/bookmark/{id}', [BookmarkController::class, 'destroy'])->middleware('auth');
+Route::delete('/bookmark/clear', [BookmarkController::class, 'destroy'])->middleware('auth');
 
 //others
 Route::get('/explore', function() {

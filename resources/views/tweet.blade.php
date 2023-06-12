@@ -25,7 +25,7 @@
                     </div>
                 @endif
                 <div class="s-container">
-                    <h3 style="padding: 2px 8px;">{{ $tweet->user->name . '`' . 's' }} Tweet</h3>
+                    <h3 style="padding: 2px 8px; text-transform:capitalize">{{ $tweet->user->name . '`' . 's' }} Tweet</h3>
                     <div class="cnt-body">
                         <br><br>
                         <div class="view-tweet">
@@ -36,11 +36,11 @@
                                             alt=""></a>
                                     <div class="id">
                                         @if ($tweet->user->followers->count() >= 3)
-                                            <h3>{{ $tweet->user->name }}&check;</h3>
+                                            <h3 style="text-transform: capitalize;">{{ $tweet->user->name }}&check;</h3>
                                             <p style="font-size: medium;">{{ '@' . $tweet->user->username }}</p>
                                             <h5>{{ $tweet->created_at }}</h5>
                                         @else
-                                            <h3>{{ $tweet->user->name }}</h3>
+                                            <h3 style="text-transform: capitalize;">{{ $tweet->user->name }}</h3>
                                             <p style="font-size: medium;">{{ '@' . $tweet->user->username }}</p>
                                             <h5>{{ $tweet->created_at }}</h5>
                                         @endif
@@ -116,9 +116,9 @@
                                     <div class="details">
                                         <div class="rep">
                                             @if (count($comment->user->followers) >= 3)
-                                                <h3>{{ $comment->user->name }}&check;</h3>
+                                                <h3 style="text-transform: capitalize;">{{ $comment->user->name }}&check;</h3>
                                             @else
-                                                <h3>{{ $comment->user->name }}</h3>
+                                                <h3 style="text-transform: capitalize;">{{ $comment->user->name }}</h3>
                                             @endif
                                             <p>{{ '@' . $comment->user->username }}</p>
                                         </div>
@@ -165,7 +165,7 @@
                                     </div>
                                 @else
                                     <div class="f-text">
-                                        <p style="font-size: large; font-weight: bold;">{{ $tweet->user->name }}</p>
+                                        <p style="font-size: large; font-weight: bold;text-transform: capitalize;">{{ $tweet->user->name }}</p>
                                         <p style="font-size: small;">{{ '@' . $tweet->user->username }}</p>
                                     </div>
                                 @endif

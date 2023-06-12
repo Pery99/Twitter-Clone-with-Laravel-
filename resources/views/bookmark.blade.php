@@ -17,7 +17,21 @@
 
             <div class="second_side">
                 <div class="s-container">
-                    <h2>Bookmarks</h2>
+                    @if (session()->has('message'))
+                        <div class="message-div" x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show">
+                            <p class="message">
+                                {{ session('message') }}
+                            </p>
+                        </div>
+                    @endif
+                    <div class="heading">
+                        <h2>Bookmarks</h2>
+                        <form action="/bookmark/clear" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="bkmark-clear">Clear all</button>
+                        </form>
+                    </div>
                     @unless (count($tweets) == 0)
                         @foreach ($tweets as $tweet)
                             <a href="/tweet/{{ $tweet['id'] }}" id="content" style="text-decoration: none; color:black;">
@@ -51,9 +65,9 @@
                                     <li> <img class="l-react" src="icon/chat.svg" alt="">
                                         <p class="count">{{ count($tweet->comments) }}</p>
                                     </li>
-                                    <li> <img class="l-react" src="icon/bookmark.svg" alt="">
+                                    {{-- <li> <img class="l-react" src="icon/bookmark.svg" alt="">
                                         <p class="count">{{ count($tweet->bookmarks) }}</p>
-                                    </li>
+                                    </li> --}}
                                     <li> <img class="l-react" src="icon/heart.svg" alt="">
                                         <p class="count">{{ count($tweet->likes) }}</p>
                                     </li>

@@ -1,9 +1,7 @@
-.second-side{
+.second-side {
     border-left: 1px solid whitesmoke;
-
-
 }
-.content{
+.content {
     color: rgb(107, 107, 107);
     position: absolute;
     left: 50%;

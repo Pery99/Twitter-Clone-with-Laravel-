@@ -233,6 +233,22 @@
     background-color: #1da1f2;
     color: white;
     padding: 15px;
+    border-radius: 30px;
+    width: 30%;
+    position: absolute;
+    left: 30%;
+    font-weight: bold;
+    z-index: 99;
+    animation: pop 0.5s;
+}
+@keyframes pop {
+    from {
+        top: -999px;
+    }
+
+    to {
+        top: 10px;
+    }
 }
 .user-search {
     width: 100%;
@@ -259,7 +275,24 @@ footer {
     cursor: pointer;
     color: rgb(165, 165, 165);
 }
-.count{
+.count {
     vertical-align: middle;
     display: inline-block;
+}
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5em;
+    padding-bottom: 1em;
+}
+.bkmark-clear {
+    background-color: red;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 0.5em 1.5em;
+    border-radius: 15px;
+    cursor: pointer;
+    text-transform: capitalize;
 }

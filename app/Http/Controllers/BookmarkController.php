@@ -23,15 +23,15 @@ class BookmarkController extends Controller
             } else {
                 $user = $tweet->user->username;
             }
-    
+
             auth()->user()->notifications()->create([
                 'type' => 'like',
                 'notifiable_type' => 'alert',
                 'notifiable_id' => 1,
                 'data' => ' You removed ' . $user . ' tweet "' . $tweet->tweets . '" from your bookmark',
-    
+
             ]);
-            return back();
+            return back()->with('message', 'Removed from bookmark');
         }
         auth()->user()->bookmarks()->create([
             'tweet_id' => $tweet_id,
@@ -62,5 +62,12 @@ class BookmarkController extends Controller
         return view('bookmark', [
             'tweets' => $bookmark,
         ]);
+    }
+
+    public function destroy()
+    {
+        $user_id = auth()->user()->id;
+        DB::table('bookmarks')->where('user_id', $user_id)->delete();
+        return back()->with('message', 'Bookmark cleared');
     }
 }

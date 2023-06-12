@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
 }
-.second-side{
+.second-side {
     border-left: 1px solid whitesmoke;
     padding: 1em;
 }
@@ -19,9 +19,16 @@
     width: max-content;
 }
 .data {
-   margin-bottom: 10px;
+    margin-bottom: 10px;
 }
-.timestamp{
+.timestamp {
     font-size: 15px;
     color: gray;
+}
+.empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: capitalize;
 }

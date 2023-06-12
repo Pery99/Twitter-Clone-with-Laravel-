@@ -21,16 +21,16 @@
                     @unless ($notifications->count() === 0)
                         @foreach ($notifications as $notification)
                             <div class="activity">
-                               <ul class="act-ul">
-                                <li class="list">
-                                  <p class="data">{{ $notification->data }}</p> 
-                                </li>
-                                <p class="timestamp">{{$notification->created_at}}</p>
-                               </ul>
+                                <ul class="act-ul">
+                                    <li class="list">
+                                        <p class="data">{{ $notification->data }}</p>
+                                    </li>
+                                    <p class="timestamp">{{ $notification->created_at }}</p>
+                                </ul>
                             </div>
                         @endforeach
                     @else
-                        <h3>NO ACTIVITY</h3>
+                        <h3 class="empty">No activities yet...</h3>
                     @endunless
                 </div>
             </div>
