@@ -34,16 +34,16 @@ class EditController extends Controller
        }
     }
 
-    public function destroy($id) 
-    {
-        // $user = User::find($id);
-        // $user->user()->delete();
-        // $user->profile()->delete();
-        // $user->tweets()->delete();
-        // $user->comments()->delete();
-        // $user->bookmarks()->delete();
-        // $user->followers()->delete();
-        // $user->following()->delete();    
-        // return redirect('/login')->with('message', 'Account Deleted');
-    }
+    // public function destroy($id) 
+    // {
+    //     // $user = User::find($id);
+    //     // $user->user()->delete();
+    //     // $user->profile()->delete();
+    //     // $user->tweets()->delete();
+    //     // $user->comments()->delete();
+    //     // $user->bookmarks()->delete();
+    //     // $user->followers()->delete();
+    //     // $user->following()->delete();    
+    //     // return redirect('/login')->with('message', 'Account Deleted');
+    // }
 }

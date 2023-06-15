@@ -25,7 +25,7 @@ class BookmarkController extends Controller
             }
 
             auth()->user()->notifications()->create([
-                'type' => 'like',
+                'type' => 'delete',
                 'notifiable_type' => 'alert',
                 'notifiable_id' => 1,
                 'data' => ' You removed ' . $user . ' tweet "' . $tweet->tweets . '" from your bookmark',
@@ -44,7 +44,7 @@ class BookmarkController extends Controller
         }
 
         auth()->user()->notifications()->create([
-            'type' => 'like',
+            'type' => 'bookmark',
             'notifiable_type' => 'alert',
             'notifiable_id' => 1,
             'data' => ' You bookmarked  ' . $user . ' tweet "' . $tweet->tweets . '"',

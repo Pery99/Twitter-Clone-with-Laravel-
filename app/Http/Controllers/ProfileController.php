@@ -62,7 +62,7 @@ class ProfileController extends Controller
         ));
 
         auth()->user()->notifications()->create([
-            'type' => 'like',
+            'type' => 'update',
             'notifiable_type' => 'alert',
             'notifiable_id' => 1,
             'data' => 'You updated your Profile',

@@ -11,28 +11,29 @@ use Illuminate\Support\Facades\DB;
 
 class LikesController extends Controller
 {
-    
-    public function store(Request $request, Tweet $tweet) {
+
+    public function store(Request $request, Tweet $tweet)
+    {
         $tweet_id = $request->tweet_id;
         $user_id = auth()->user()->id;
         $notification = new LikeNotification();
-         
+
         $existing = DB::table('likes')->where('tweet_id', $tweet_id)->where('user_id', $user_id)->first();
-        if($existing){
-            DB::table('likes')->where('tweet_id', $tweet_id)->where('user_id', $user_id)->delete();    
+        if ($existing) {
+            DB::table('likes')->where('tweet_id', $tweet_id)->where('user_id', $user_id)->delete();
             return back();
-            
-        }else{
+
+        } else {
             auth()->user()->likes()->create([
-                'tweet_id' => $tweet_id,  
+                'tweet_id' => $tweet_id,
             ]);
 
             $tweet = Tweet::find($tweet_id);
 
-            if($tweet->user->username === auth()->user()->username){
+            if ($tweet->user->username === auth()->user()->username) {
                 $user = 'your';
                 $user_post = $tweet->tweets;
-            }else{
+            } else {
                 $user = $tweet->user->username;
                 $user_post = $tweet->tweets;
             }
@@ -40,13 +41,12 @@ class LikesController extends Controller
                 'type' => 'like',
                 'notifiable_type' => 'alert',
                 'notifiable_id' => 1,
-                'data' =>' You liked  '. $user . ' post "'. $user_post .'" '  ,
- 
+                'data' => ' You liked  ' . $user . ' post "' . $user_post . '" ',
             ]);
 
             return back();
 
         }
-        }
+    }
 
 }

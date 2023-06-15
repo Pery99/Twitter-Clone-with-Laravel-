@@ -59,7 +59,7 @@ class TweetsController extends Controller
             
 
             auth()->user()->notifications()->create([
-                'type' => 'like',
+                'type' => 'tweet',
                 'notifiable_type' => 'alert',
                 'notifiable_id' => 1,
                 'data' =>' You made a Tweet "'. $data['tweets'] .'"' ,
@@ -74,7 +74,7 @@ class TweetsController extends Controller
         $tweet->delete();
 
         auth()->user()->notifications()->create([
-            'type' => 'like',
+            'type' => 'delete',
             'notifiable_type' => 'alert',
             'notifiable_id' => 1,
             'data' =>' You Deleted your Tweet "'. $tweet->tweets .'"' ,

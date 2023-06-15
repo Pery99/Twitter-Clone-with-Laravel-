@@ -25,7 +25,7 @@ class CommentsController extends Controller
         }
 
         auth()->user()->notifications()->create([
-            'type' => 'like',
+            'type' => 'comment',
             'notifiable_type' => 'alert',
             'notifiable_id' => 1,
             'data' => ' You made a comment "' . $request->comment . '"' . ' on ' . $user . ' post "' . $tweet->tweets . '"',
