@@ -54,7 +54,7 @@
                                         <div class="upload">
                                             <label title="Upload Photo" style="cursor: pointer" for="image"><img
                                                     src="/icon/image.svg" alt=""></label>
-                                            <input style="display: none;" type="file" name="image" id="image">
+                                            <input style="display: none;" type="file" name="image" id="image" accept=".jpg, .png">
                                             @error('image')
                                                 <p style="font-size: small; color:red">{{ $message }}</p>
                                             @enderror

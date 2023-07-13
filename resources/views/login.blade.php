@@ -92,7 +92,7 @@
         <form method="POST" action="/login">
             @csrf
             <div class="user-box">
-                <input type="text" name="email" value="">
+                <input type="text" name="email" inputmode="email" value="">
                 <label>Email</label>
                 @error('email')
                     <p style="font-size: small; color:red">{{ $message }}</p>

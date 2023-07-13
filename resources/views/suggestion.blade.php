@@ -21,31 +21,31 @@
         <h2 style="display:flex;justify-content:center;">People you can follow</h2>
         <br>
         @unless (count($users) === 1)
-        @foreach ($users as $user)
-            @if ($user->id == auth()->user()->id)
-            @else
-                <div class="follow">
-                    <div class="follow-id">
-                        <img class="p-photo" src="/storage/{{ $user->profile->pphoto }}" alt="">
-                        <div class="f-text">
-                            <p style="font-size: large; font-weight: bold;">{{ $user->name }}</p>
-                            <p style="font-size: medium;">{{ '@' . $user->username }}</p>
+            @foreach ($users as $user)
+                @if ($user->id == auth()->user()->id)
+                @else
+                    <div class="follow">
+                        <div class="follow-id">
+                            <img class="p-photo" src="/storage/{{ $user->profile->pphoto }}" alt="">
+                            <div class="f-text">
+                                <p style="font-size: large; font-weight: bold;">{{ $user->name }}</p>
+                                <p style="font-size: medium;">{{ '@' . $user->username }}</p>
+                            </div>
                         </div>
+                        <form action=" /users/{{ $user->username }}/follow" method="POST">
+                            @csrf
+                            @if (auth()->user()->following->contains($user->id))
+                                <button onclick="" class="follow-btn">Following</button>
+                            @else
+                                <button onclick="" class="follow-btn">Follow</button>
+                            @endif
+                        </form>
                     </div>
-                    <form action=" /users/{{ $user->username }}/follow" method="POST">
-                        @csrf
-                        @if (auth()->user()->following->contains($user->id))
-                            <button onclick="" class="follow-btn">Following</button>
-                        @else
-                            <button onclick="" class="follow-btn">Follow</button>
-                        @endif
-                    </form>
-                </div>
-                <hr>
-            @endif
-        @endforeach
+                    <hr>
+                @endif
+            @endforeach
         @else
-        <h3 style="text-align: center;">No user found</h3>
+            <h3 style="text-align: center;">No user found</h3>
         @endunless
         <br>
         {{ $users->links() }}
@@ -56,4 +56,5 @@
         </div>
 </body>
 <script src="https://cdn.tailwindcss.com"></script>
+
 </html>

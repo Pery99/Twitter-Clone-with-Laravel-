@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
              'email' => 'test@example.com',
          ]);
 
-         \App\Models\Tweets::factory(100)->create();
+         \App\Models\Tweets::factory(10)->create();
     }
 }

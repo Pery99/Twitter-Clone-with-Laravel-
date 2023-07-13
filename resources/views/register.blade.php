@@ -99,7 +99,7 @@
                 @enderror
             </div>
             <div class="user-box">
-                <input type="text" name="email" value="{{ old('email') }}">
+                <input type="text" name="email" inputmode="email" value="{{ old('email') }}"> 
                 <label>Email</label>
                 @error('email')
                     <p style="font-size: small; color:red">{{ $message }}</p>

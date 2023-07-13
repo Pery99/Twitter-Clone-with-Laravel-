@@ -47,16 +47,27 @@
 }
 
 .message-div {
-    position: absolute;
-    left: 50%;
-    top: 3%;
-    width: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #1DA1F2;
+    display: flex;
+    justify-content: center;
+    background-color: #1da1f2;
     color: white;
     padding: 15px;
-    z-index: 999;
-    text-align: center;
+    border-radius: 30px;
+    width: 30%;
+    position: absolute;
+    left: 30%;
+    font-weight: bold;
+    z-index: 99;
+    animation: pop 0.5s;
+}
+@keyframes pop {
+    from {
+        top: -999px;
+    }
+
+    to {
+        top: 10px;
+    }
 }
 
 @media screen and (max-width: 900px) and (min-width: 500px) {
